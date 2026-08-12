@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { siteContent } from '../../data/site';
+
+const content = siteContent.fr.outreach;
+
+// kind détermine le marqueur de type affiché devant chaque élément.
+//   'document'   → écrit (article, essai, notes)
+//   'talk-video' → exposé avec enregistrement (intégré ci-dessous)
+//   'talk'       → exposé sans enregistrement
+const kindLabels = {
+	document: { icon: '📄', label: 'Texte / document' },
+	'talk-video': { icon: '🎥', label: 'Conférence — vidéo' },
+	talk: { icon: '🎙', label: 'Conférence' },
+};
+
+const items = [
+	{
+		kind: 'document',
+		title: 'La théorie des cordes a-t-elle été découverte par accident ?',
+		meta: 'Article dans The Conversation',
+		href: 'https://theconversation.com/la-theorie-des-cordes-a-t-elle-ete-decouverte-par-accident-273306',
+	},
+	{
+		kind: 'document',
+		title: 'La théorie des cordes émerge-t-elle naturellement à partir de principes généraux ?',
+		meta: 'Entretien dans Pour la Science',
+		href: 'https://www.pourlascience.fr/sd/physique-theorique/la-theorie-des-cordes-emerge-t-elle-naturellement-a-partir-de-principes-generaux-29442.php',
+	},
+	{
+		kind: 'talk-video',
+		title: 'Conférence grand public à Cargèse',
+		meta: 'Enregistrement vidéo',
+		href: 'https://www.youtube.com/watch?v=EWgQGz0waC0',
+		embed: 'https://www.youtube-nocookie.com/embed/EWgQGz0waC0',
+	},
+	{
+		kind: 'talk',
+		title: 'Universalité des interactions : les lois de la nature sont-elles inévitables ?',
+		meta: 'Brasserie des sciences, Annecy (sans enregistrement)',
+		href: 'https://www.univ-smb.fr/event/brasserie-des-sciences-universalite-des-interactions-les-lois-de-la-nature-sont-elles-inevitables/',
+	},
+];
+---
+
+<Layout lang="fr" route="outreach" title={content.title} description={content.description}>
+	<section class="page-intro">
+		<p class="eyebrow">Pour un public plus large</p>
+		<h1>{content.title}</h1>
+		<p class="page-intro__lead">{content.intro}</p>
+	</section>
+
+	<ul class="outreach-list">
+		{items.map((item) => (
+			<li>
+				<span class="outreach-kind" aria-label={kindLabels[item.kind].label}>
+					<span class="outreach-kind__icon" aria-hidden="true">{kindLabels[item.kind].icon}</span>
+					{kindLabels[item.kind].label}
+				</span>
+				<a href={item.href} target="_blank" rel="noreferrer">{item.title}</a>
+				<p>{item.meta}</p>
+				{item.embed && (
+					<div class="outreach-video">
+						<iframe
+							src={item.embed}
+							title={item.title}
+							loading="lazy"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin"
+							allowfullscreen
+						></iframe>
+					</div>
+				)}
+			</li>
+		))}
+	</ul>
+</Layout>

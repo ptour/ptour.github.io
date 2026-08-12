@@ -1,0 +1,60 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+import EmailLink from './EmailLink.astro';
+import { navigationLabels, pathFor, siteIdentity, type Lang, type RouteKey } from '../data/site';
+
+interface Props {
+	lang: Lang;
+	currentRoute: RouteKey;
+}
+
+const { lang, currentRoute } = Astro.props;
+const labels = navigationLabels[lang];
+const navItems: RouteKey[] = ['home', 'outreach', 'openPositions', 'students'];
+---
+
+<aside class="profile-rail">
+	<div class="profile-rail__inner">
+		<a class="profile-rail__portrait" href={pathFor(lang, 'home')}>
+			<img
+				src={siteIdentity.photo}
+				alt={lang === 'en' ? 'Portrait of Piotr Tourkine' : 'Portrait de Piotr Tourkine'}
+			/>
+		</a>
+
+		<div class="profile-rail__identity">
+			<a class="profile-rail__name" href={pathFor(lang, 'home')}>{siteIdentity.name}</a>
+			<p class="profile-rail__title">{siteIdentity.title[lang]}</p>
+			<p class="profile-rail__meta">{siteIdentity.affiliation}</p>
+			<p class="profile-rail__meta">{siteIdentity.location}</p>
+		</div>
+
+		<nav class="profile-rail__nav" aria-label={lang === 'en' ? 'Primary' : 'Navigation principale'}>
+			{
+				navItems.map((route) => (
+					<a href={pathFor(lang, route)} aria-current={route === currentRoute ? 'page' : undefined}>
+						{labels[route]}
+					</a>
+				))
+			}
+		</nav>
+
+		<div class="profile-rail__aux">
+			<LanguageSwitcher lang={lang} route={currentRoute} />
+		</div>
+
+		<div class="profile-rail__contact">
+			<p><EmailLink lang={lang} /></p>
+			<p>{siteIdentity.office[lang]}</p>
+		</div>
+
+		<ul class="profile-rail__links">
+			<li><a href={siteIdentity.links.institutional}>{lang === 'en' ? 'Institutional page' : 'Page institutionnelle'}</a></li>
+			<li><a href={siteIdentity.links.inspire}>INSPIRE</a></li>
+			<li><a href={siteIdentity.links.arxiv}>arXiv</a></li>
+			<li><a href={siteIdentity.links.scholar}>Google Scholar</a></li>
+		</ul>
+
+		<p class="profile-rail__updated">{siteIdentity.lastUpdated[lang]}</p>
+	</div>
+</aside>

@@ -1,0 +1,34 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import PersonRecord from '../../components/PersonRecord.astro';
+import { siteContent, supervisees } from '../../data/site';
+
+const content = siteContent.fr.students;
+---
+
+<Layout lang="fr" route="students" title={content.title} description={content.description}>
+	<section class="page-intro">
+		<p class="eyebrow">Points d’entrée pour étudiants</p>
+		<h1>{content.title}</h1>
+		<p class="page-intro__lead">{content.intro}</p>
+	</section>
+
+	<Section title="Postdoctorantes et postdoctorants">
+		<ul class="supervision-list">
+			{supervisees.fr.postdocs.map((person) => <li><PersonRecord person={person} /></li>)}
+		</ul>
+	</Section>
+
+	<Section title="Doctorantes et doctorants">
+		<ul class="supervision-list">
+			{supervisees.fr.phds.map((person) => <li><PersonRecord person={person} /></li>)}
+		</ul>
+	</Section>
+
+	<Section title="Étudiantes et étudiants de master">
+		<ul class="supervision-list">
+			{supervisees.fr.masters.map((item) => <li>{item}</li>)}
+		</ul>
+	</Section>
+</Layout>

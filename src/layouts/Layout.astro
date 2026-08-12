@@ -1,23 +1,51 @@
+---
+import ProfileRail from '../components/ProfileRail.astro';
+import '../styles/global.css';
+import { analytics, pathFor, switchPath, type Lang, type RouteKey } from '../data/site';
+
+interface Props {
+	lang: Lang;
+	route: RouteKey;
+	title: string;
+	description: string;
+}
+
+const { lang, route, title, description } = Astro.props;
+const siteTitle = title === 'Piotr Tourkine' ? title : `${title} | Piotr Tourkine`;
+const alternate = switchPath(lang, route);
+---
+
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content={description} />
+		<meta name="generator" content={Astro.generator} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<link rel="alternate" hreflang={lang === 'en' ? 'fr' : 'en'} href={alternate} />
+		<link rel="alternate" hreflang={lang} href={pathFor(lang, route)} />
+		<meta property="og:title" content={siteTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<title>{siteTitle}</title>
+		{analytics.enabled && (
+			<script
+				data-goatcounter={`https://${analytics.goatCounterCode}.goatcounter.com/count`}
+				async
+				src="//gc.zgo.at/count.js"
+			></script>
+		)}
 	</head>
 	<body>
-		<slot />
+		<div class="shell site-shell">
+			<ProfileRail lang={lang} currentRoute={route} />
+			<main class="site-main">
+				<article class="content-column">
+					<slot />
+				</article>
+			</main>
+		</div>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

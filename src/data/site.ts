@@ -1,0 +1,380 @@
+export type Lang = 'en' | 'fr';
+export type RouteKey = 'home' | 'cv' | 'outreach' | 'openPositions' | 'students';
+
+export const routeMap: Record<Lang, Record<RouteKey, string>> = {
+	en: {
+		home: '/en/',
+		cv: '/en/cv/',
+		outreach: '/en/outreach/',
+		openPositions: '/en/open-positions/',
+		students: '/en/students/',
+	},
+	fr: {
+		home: '/fr/',
+		cv: '/fr/cv/',
+		outreach: '/fr/mediation/',
+		openPositions: '/fr/postes-ouverts/',
+		students: '/fr/etudiants/',
+	},
+};
+
+export const alternateLang: Record<Lang, Lang> = {
+	en: 'fr',
+	fr: 'en',
+};
+
+export const siteIdentity = {
+	name: 'Piotr Tourkine',
+	title: {
+		en: 'Theoretical physicist',
+		fr: 'Physicien théoricien',
+	},
+	affiliation: "Laboratoire d'Annecy de Physique Théorique / CNRS",
+	location: 'Annecy, France',
+	lastUpdated: {
+		en: 'Last updated: July 2026',
+		fr: 'Dernière mise à jour : juillet 2026',
+	},
+	office: {
+		en: 'Laboratoire d’Annecy de Physique Théorique, 9 Chemin de Bellevue, 74940 Annecy, France. Office 4.014.',
+		fr: 'Laboratoire d’Annecy de Physique Théorique, 9 Chemin de Bellevue, 74940 Annecy, France. Bureau 4.014.',
+	},
+	photo: '/piotr-tourkine.jpg',
+	links: {
+		cv: '/cv.pdf',
+		institutional: 'https://lapth.cnrs.fr/pg-nomin/tourkine/',
+		inspire: 'https://inspirehep.net/authors/1280395',
+		arxiv: 'https://arxiv.org/search/?searchtype=author&query=Tourkine%2C+P',
+		scholar: 'https://scholar.google.com/citations?user=O-n5g0kAAAAJ&hl=en',
+	},
+};
+
+// --- Visitor analytics -------------------------------------------------------
+// Privacy-friendly stats (visits + country), no cookies, no consent banner.
+// To TURN ON:  set enabled: true and paste your GoatCounter site code below.
+//              (Sign up free at https://www.goatcounter.com/ — the code is the
+//               subdomain you pick, e.g. "ptourkine" for ptourkine.goatcounter.com.)
+// To TURN OFF: set enabled: false. Nothing is loaded and no requests are made.
+export const analytics = {
+	enabled: false,
+	goatCounterCode: 'YOUR-CODE-HERE',
+};
+
+export const navigationLabels: Record<Lang, Record<RouteKey, string>> = {
+	en: {
+		home: 'Home',
+		cv: 'CV',
+		outreach: 'Outreach',
+		openPositions: 'Open positions',
+		students: 'Students',
+	},
+	fr: {
+		home: 'Accueil',
+		cv: 'CV',
+		outreach: 'Médiation',
+		openPositions: 'Postes ouverts',
+		students: 'Étudiantes et étudiants',
+	},
+};
+
+export const routeSummaries = {
+	en: {
+		cv: {
+			title: 'Academic CV',
+			body: 'Research areas, career path, supervision, and academic links.',
+		},
+		outreach: {
+			title: 'Outreach',
+			body: 'Articles and public talks about theoretical physics.',
+		},
+		students: {
+			title: 'Students',
+			body: 'An entry point into my research areas, with a few practical pointers.',
+		},
+	},
+	fr: {
+		cv: {
+			title: 'CV académique',
+			body: 'Thèmes de recherche, parcours, encadrement et liens académiques.',
+		},
+		outreach: {
+			title: 'Médiation scientifique',
+			body: 'Articles et conférences destinés à un public non spécialiste.',
+		},
+		students: {
+			title: 'Pour les étudiantes et étudiants',
+			body: 'Un point d’entrée dans mes thèmes de recherche, avec quelques indications pratiques.',
+		},
+	},
+};
+
+export const careerTimeline = {
+	en: [
+		{
+			period: '2021-',
+			text: 'Researcher at CNRS, LAPTh, Annecy. Permanent position devoted to research.',
+		},
+		{
+			period: '2020-2021',
+			text: 'Scientific associate at CERN, on leave from CNRS.',
+		},
+		{
+			period: '2019-2020',
+			text: 'Researcher at CNRS, LPTHE, Sorbonne Universite, Paris. Permanent position.',
+		},
+		{
+			period: '2017-2019',
+			text: 'CERN Fellow in the Theory Department, Marie Sklodowska-Curie grant Newloops, Geneva.',
+		},
+		{
+			period: '2014-2017',
+			text: 'Postdoctoral researcher at DAMTP, University of Cambridge.',
+		},
+		{
+			period: '2011-2014',
+			text: 'PhD in theoretical physics at IPhT, CEA Saclay, Sorbonne Universite. Advisor: Pierre Vanhove.',
+		},
+		{
+			period: '2007-2011',
+			text: 'Ecole normale superieure de Paris.',
+		},
+	],
+	fr: [
+		{
+			period: '2021-',
+			text: 'Chargé de recherches au CNRS, LAPTh, Annecy. Poste permanent de recherche.',
+		},
+		{
+			period: '2020-2021',
+			text: 'Associé scientifique au CERN, en détachement du CNRS.',
+		},
+		{
+			period: '2019-2020',
+			text: 'Chargé de recherches au CNRS, LPTHE, Sorbonne Université, Paris. Poste permanent.',
+		},
+		{
+			period: '2017-2019',
+			text: 'Fellow au CERN, département Théorie, bourse Marie Sklodowska-Curie Newloops, Genève.',
+		},
+		{
+			period: '2014-2017',
+			text: 'Postdoctorat au DAMTP, Université de Cambridge.',
+		},
+		{
+			period: '2011-2014',
+			text: 'Doctorat de physique théorique à l’IPhT, CEA Saclay, Sorbonne Université. Direction: Pierre Vanhove.',
+		},
+		{
+			period: '2007-2011',
+			text: 'École normale supérieure de Paris.',
+		},
+	],
+};
+
+export const supervisees = {
+	en: {
+		postdocs: [
+			{
+				label: 'Simon Metayer, 2025-2026 (ANR SPARTA)',
+				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Simon%20Metayer',
+				scholar: 'https://scholar.google.com/scholar?q=%22Simon+Metayer%22',
+			},
+			{
+				label: 'Mehmet Gummus, 2023-2026 (ANR SPARTA)',
+				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Mehmet%20Asim%20Gumus',
+				scholar: 'https://scholar.google.com/scholar?q=%22Mehmet+Asim+Gumus%22',
+			},
+			{
+				label: 'Yihong Wang, 2022-2023 (CNRS Emergence)',
+				inspire: 'https://inspirehep.net/authors/1509995',
+				scholar: 'https://scholar.google.com/scholar?q=%22Yihong+Wang%22+hep-th',
+			},
+		],
+		masters: [
+			'Baptiste Guilleminot, M2, 2026',
+			'Antoine Villey, M2, 2025',
+			'Baptiste Guilleminot, M1, 2025',
+			'Georgia Vassileiou, M1, 2025',
+			'Antoine Vincenti, M1, 2023',
+			'Damien Leflot, M2, 2023',
+			'Felipe Figueroa, M2, 2021',
+		],
+		phds: [
+			{
+				label: 'Antoine Villey, 2025-2028',
+				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Antoine%20Villey',
+				scholar: 'https://scholar.google.com/scholar?q=%22Antoine+Villey%22+physics',
+			},
+			{
+				label: 'Damien Leflot, 2023-2026; subsequently a postdoctoral researcher at the University of Pisa',
+				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Damien%20Leflot',
+				scholar: 'https://scholar.google.com/scholar?q=%22Damien+Leflot%22',
+			},
+			{
+				label: 'Felipe Figueroa, 2021-2024; subsequently a postdoctoral researcher in Mons',
+				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Felipe%20Figueroa',
+				scholar: 'https://scholar.google.com/scholar?q=%22Felipe+Figueroa%22+physics',
+			},
+		],
+	},
+	fr: {
+		postdocs: [
+			{
+				label: 'Simon Metayer, 2025-2026 (ANR SPARTA)',
+				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Simon%20Metayer',
+				scholar: 'https://scholar.google.com/scholar?q=%22Simon+Metayer%22',
+			},
+			{
+				label: 'Mehmet Gummus, 2023-2026 (ANR SPARTA)',
+				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Mehmet%20Asim%20Gumus',
+				scholar: 'https://scholar.google.com/scholar?q=%22Mehmet+Asim+Gumus%22',
+			},
+			{
+				label: 'Yihong Wang, 2022-2023 (CNRS Émergence)',
+				inspire: 'https://inspirehep.net/authors/1509995',
+				scholar: 'https://scholar.google.com/scholar?q=%22Yihong+Wang%22+hep-th',
+			},
+		],
+		masters: [
+			'Baptiste Guilleminot, M2, 2026',
+			'Antoine Villey, M2, 2025',
+			'Baptiste Guilleminot, M1, 2025',
+			'Georgia Vassileiou, M1, 2025',
+			'Antoine Vincenti, M1, 2023',
+			'Damien Leflot, M2, 2023',
+			'Felipe Figueroa, M2, 2021',
+		],
+		phds: [
+			{
+				label: 'Antoine Villey, 2025-2028',
+				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Antoine%20Villey',
+				scholar: 'https://scholar.google.com/scholar?q=%22Antoine+Villey%22+physics',
+			},
+			{
+				label: 'Damien Leflot, 2023-2026 ; puis postdoctorant à l’Université de Pise',
+				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Damien%20Leflot',
+				scholar: 'https://scholar.google.com/scholar?q=%22Damien+Leflot%22',
+			},
+			{
+				label: 'Felipe Figueroa, 2021-2024 ; puis postdoctorant à Mons',
+				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Felipe%20Figueroa',
+				scholar: 'https://scholar.google.com/scholar?q=%22Felipe+Figueroa%22+physics',
+			},
+		],
+	},
+};
+
+export const siteContent = {
+	en: {
+		home: {
+			title: 'Piotr Tourkine',
+			description:
+				'Minimal bilingual academic website for Piotr Tourkine, theoretical physicist at LAPTh / CNRS.',
+			heroSubtitle: 'Theoretical physicist — LAPTh / CNRS',
+			shortIntro:
+				'I am a theoretical physicist working in high-energy theory, with interests in quantum field theory, scattering amplitudes, the S-matrix, string theory, and quantum gravity.',
+			longIntro:
+				'I work at the interface of quantum field theory, scattering amplitudes, the S-matrix, string theory, and quantum gravity. I am especially interested in analyticity, consistency conditions, high-energy limits, and the structure of relativistic scattering. More broadly, I study how general principles constrain the space of possible theories.',
+			contactNote:
+				'For academic inquiries, invitations, general requests, or student contact, please use the address below.',
+			researchHighlights: [
+				'Quantum field theory',
+				'Scattering amplitudes',
+				'S-matrix bootstrap',
+				'String theory',
+				'Quantum gravity',
+			],
+		},
+		cv: {
+			title: 'Academic CV',
+			description:
+				'Research areas, academic biography, career path, and academic links for Piotr Tourkine.',
+			shortBio:
+				'Piotr Tourkine is a theoretical physicist working in high-energy theory at LAPTh / CNRS in Annecy. His research lies at the intersection of quantum field theory, scattering amplitudes, the S-matrix, string theory, and quantum gravity, with a particular interest in analyticity, consistency, and high-energy behavior.',
+			researchParagraph:
+				'My work is centered on formal aspects of fundamental interactions. I am interested in how broad principles such as analyticity, unitarity, causality, and high-energy behavior constrain scattering processes and, more generally, the space of consistent theories.',
+			researchAreas: [
+				'Quantum field theory',
+				'String theory and quantum gravity',
+				'Bootstrap',
+			],
+			linksIntro:
+				'For full publication lists and institutional references, the profiles below are the most useful starting points.',
+		},
+		outreach: {
+			title: 'Outreach',
+			description: 'Articles and public talks by Piotr Tourkine about theoretical physics.',
+			intro:
+				'A selection of articles and public talks intended for audiences beyond my immediate research field.',
+		},
+		students: {
+			title: 'Students',
+			description:
+				'Student-oriented introduction to Piotr Tourkine’s research areas and possible entry points.',
+			intro:
+				'My work is in theoretical high-energy physics, especially around quantum field theory, scattering amplitudes, the S-matrix, string theory, and quantum gravity. A simple way to summarize my interests is that I study the general principles that constrain possible physical theories.',
+			prospectiveNote:
+				'Please check the LAPTh webpage for current PhD and internship opportunities. When positions are available, details and application information will be posted here.',
+		},
+	},
+	fr: {
+		home: {
+			title: 'Piotr Tourkine',
+			description:
+				'Site académique bilingue, minimal et statique, pour Piotr Tourkine, physicien théoricien au LAPTh / CNRS.',
+			heroSubtitle: 'Physicien théoricien — LAPTh / CNRS',
+			shortIntro:
+				'Je suis physicien théoricien en physique des hautes énergies, avec des intérêts pour la théorie quantique des champs, les amplitudes de diffusion, la matrice S, la théorie des cordes et la gravité quantique.',
+			longIntro:
+				'Je travaille à l’interface entre théorie quantique des champs, amplitudes de diffusion, matrice S, théorie des cordes et gravité quantique. Je m’intéresse en particulier à l’analyticité, aux conditions de cohérence, aux limites de haute énergie, et à la structure de la diffusion relativiste. Plus généralement, je cherche à comprendre comment des principes généraux contraignent l’espace des théories possibles.',
+			contactNote:
+				'Pour les questions académiques, invitations, demandes générales ou prises de contact étudiantes, merci d’utiliser l’adresse ci-dessous.',
+			researchHighlights: [
+				'Théorie quantique des champs',
+				'Amplitudes de diffusion',
+				'Bootstrap de la matrice S',
+				'Théorie des cordes',
+				'Gravité quantique',
+			],
+		},
+		cv: {
+			title: 'CV académique',
+			description:
+				'Thèmes de recherche, biographie académique, parcours et liens utiles pour Piotr Tourkine.',
+			shortBio:
+				'Piotr Tourkine est physicien théoricien en physique des hautes énergies au LAPTh / CNRS à Annecy. Ses recherches se situent à l’intersection de la théorie quantique des champs, des amplitudes de diffusion, de la matrice S, de la théorie des cordes et de la gravité quantique, avec un intérêt particulier pour l’analyticité, la cohérence et le comportement à haute énergie.',
+			researchParagraph:
+				'Mes travaux portent sur des aspects formels des interactions fondamentales. Je m’intéresse à la manière dont des principes généraux tels que l’analyticité, l’unitarité, la causalité et le comportement à haute énergie contraignent les processus de diffusion et, plus largement, l’espace des théories cohérentes.',
+			researchAreas: [
+				'Théorie quantique des champs',
+				'Théorie des cordes et gravité quantique',
+				'Bootstrap',
+			],
+			linksIntro:
+				'Pour les listes complètes de publications et les références institutionnelles, les profils ci-dessous sont le point d’entrée le plus utile.',
+		},
+		outreach: {
+			title: 'Médiation scientifique',
+			description: 'Articles et conférences grand public de Piotr Tourkine autour de la physique théorique.',
+			intro:
+				'Une sélection d’articles et de conférences destinés à un public plus large que celui de mon domaine de recherche.',
+		},
+		students: {
+			title: 'Étudiantes et étudiants',
+			description:
+				'Présentation concise des thèmes de recherche de Piotr Tourkine à destination des étudiantes et étudiants.',
+			intro:
+				'Je travaille en physique théorique des hautes énergies, en particulier autour de la théorie quantique des champs, des amplitudes de diffusion, de la matrice S, de la théorie des cordes et de la gravité quantique. Une manière simple de résumer mes questions de recherche est la suivante : quels sont les principes généraux qui contraignent les théories physiques possibles ?',
+			prospectiveNote:
+				'Les offres de thèse et de stage en cours sont publiées sur le site du LAPTh, avec les informations pratiques pour candidater.',
+		},
+	},
+} as const;
+
+export function pathFor(lang: Lang, route: RouteKey) {
+	return routeMap[lang][route];
+}
+
+export function switchPath(lang: Lang, route: RouteKey) {
+	return routeMap[alternateLang[lang]][route];
+}

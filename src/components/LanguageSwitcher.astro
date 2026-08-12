@@ -1,0 +1,15 @@
+---
+import { pathFor, type Lang, type RouteKey } from '../data/site';
+
+interface Props {
+	lang: Lang;
+	route: RouteKey;
+}
+
+const { lang, route } = Astro.props;
+---
+
+<div class="lang-switcher" aria-label={lang === 'en' ? 'Language switcher' : 'Changement de langue'}>
+	<a href={pathFor('en', route)} aria-current={lang === 'en' ? 'true' : 'false'}>EN</a>
+	<a href={pathFor('fr', route)} aria-current={lang === 'fr' ? 'true' : 'false'}>FR</a>
+</div>

@@ -1,0 +1,66 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import PersonRecord from '../../components/PersonRecord.astro';
+import EmailLink from '../../components/EmailLink.astro';
+import { careerTimeline, siteContent, siteIdentity, supervisees } from '../../data/site';
+
+const content = siteContent.fr.cv;
+---
+
+<Layout lang="fr" route="cv" title={content.title} description={content.description}>
+	<section class="page-intro">
+		<p class="eyebrow">Profil académique</p>
+		<h1>{content.title}</h1>
+		<p class="page-intro__subtitle">{siteIdentity.affiliation} · {siteIdentity.location}</p>
+		<p class="page-intro__lead">{content.shortBio}</p>
+	</section>
+
+	<Section title="Thèmes de recherche" lede={content.researchParagraph}>
+		<ul class="bullet-list">
+			{content.researchAreas.map((item) => <li>{item}</li>)}
+		</ul>
+	</Section>
+
+	<Section title="Position actuelle">
+		<div class="contact-panel">
+			<p>{siteIdentity.name}</p>
+			<p>{siteIdentity.title.fr}</p>
+			<p>{siteIdentity.affiliation}</p>
+			<p>{siteIdentity.office.fr}</p>
+			<p><EmailLink lang="fr" /></p>
+		</div>
+	</Section>
+
+	<Section title="Parcours">
+		<div class="timeline">
+			<ul>
+				{
+					careerTimeline.fr.map((item) => (
+						<li>
+							<div class="timeline__period">{item.period}</div>
+							<div>{item.text}</div>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</Section>
+
+	<Section title="Encadrement">
+		<ul class="bullet-list">
+			{supervisees.fr.postdocs.map((person) => <li><PersonRecord person={person} /></li>)}
+			{supervisees.fr.phds.map((person) => <li><PersonRecord person={person} /></li>)}
+			{supervisees.fr.masters.map((item) => <li>{item}</li>)}
+		</ul>
+	</Section>
+
+	<Section title="Liens et profils" lede={content.linksIntro}>
+		<ul class="link-list">
+			<li><a href={siteIdentity.links.institutional}>Page institutionnelle</a></li>
+			<li><a href={siteIdentity.links.inspire}>INSPIRE</a></li>
+			<li><a href={siteIdentity.links.arxiv}>Page auteur arXiv</a></li>
+			<li><a href={siteIdentity.links.scholar}>Google Scholar</a></li>
+		</ul>
+	</Section>
+</Layout>

@@ -1,0 +1,41 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
+import { careerTimeline, siteContent, siteIdentity } from '../../data/site';
+
+const content = siteContent.fr.cv;
+---
+
+<Layout lang="fr" route="home" title={siteIdentity.name} description={content.description}>
+	<section class="page-intro">
+		<p class="eyebrow">CV académique</p>
+		<h1>{siteIdentity.name}</h1>
+		<p class="page-intro__subtitle">{siteIdentity.title.fr} · {siteIdentity.affiliation}</p>
+		<p class="page-intro__lead">{content.shortBio}</p>
+	</section>
+
+	<Section title="Thèmes de recherche">
+		<ul class="keyword-list">
+			{content.researchAreas.map((item) => <li>{item}</li>)}
+		</ul>
+	</Section>
+
+	<Section title="Parcours académique">
+		<div class="timeline">
+			<ul>
+				{careerTimeline.fr.map((item) => (
+					<li><div class="timeline__period">{item.period}</div><div>{item.text}</div></li>
+				))}
+			</ul>
+		</div>
+	</Section>
+
+	<Section title="CV complet et profils de publications">
+		<ul class="link-list">
+			<li><a href={siteIdentity.links.cv}>CV complet (PDF)</a></li>
+			<li><a href={siteIdentity.links.inspire}>INSPIRE</a></li>
+			<li><a href={siteIdentity.links.scholar}>Google Scholar</a></li>
+			<li><a href={siteIdentity.links.arxiv}>Page auteur arXiv</a></li>
+		</ul>
+	</Section>
+</Layout>

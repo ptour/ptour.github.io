@@ -1,0 +1,77 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { siteContent } from '../../data/site';
+
+const content = siteContent.en.outreach;
+
+// kind drives the type marker shown before each item.
+//   'document'   → written piece (article, essay, notes)
+//   'talk-video' → talk with a recording (embedded below)
+//   'talk'       → talk without a recording
+const kindLabels = {
+	document: { icon: '📄', label: 'Text / document' },
+	'talk-video': { icon: '🎥', label: 'Talk — video' },
+	talk: { icon: '🎙', label: 'Talk' },
+};
+
+const items = [
+	{
+		kind: 'document',
+		title: 'Was string theory discovered by accident?',
+		meta: 'Article in The Conversation (in French)',
+		href: 'https://theconversation.com/la-theorie-des-cordes-a-t-elle-ete-decouverte-par-accident-273306',
+	},
+	{
+		kind: 'document',
+		title: 'Does string theory emerge naturally from general principles?',
+		meta: 'Interview in Pour la Science (in French)',
+		href: 'https://www.pourlascience.fr/sd/physique-theorique/la-theorie-des-cordes-emerge-t-elle-naturellement-a-partir-de-principes-generaux-29442.php',
+	},
+	{
+		kind: 'talk-video',
+		title: 'Public lecture in Cargèse',
+		meta: 'Video recording (in French)',
+		href: 'https://www.youtube.com/watch?v=EWgQGz0waC0',
+		embed: 'https://www.youtube-nocookie.com/embed/EWgQGz0waC0',
+	},
+	{
+		kind: 'talk',
+		title: 'Universality of interactions: are the laws of nature inevitable?',
+		meta: 'Brasserie des sciences, Annecy (in French; no recording)',
+		href: 'https://www.univ-smb.fr/event/brasserie-des-sciences-universalite-des-interactions-les-lois-de-la-nature-sont-elles-inevitables/',
+	},
+];
+---
+
+<Layout lang="en" route="outreach" title={content.title} description={content.description}>
+	<section class="page-intro">
+		<p class="eyebrow">For a wider audience</p>
+		<h1>{content.title}</h1>
+		<p class="page-intro__lead">{content.intro}</p>
+	</section>
+
+	<ul class="outreach-list">
+		{items.map((item) => (
+			<li>
+				<span class="outreach-kind" aria-label={kindLabels[item.kind].label}>
+					<span class="outreach-kind__icon" aria-hidden="true">{kindLabels[item.kind].icon}</span>
+					{kindLabels[item.kind].label}
+				</span>
+				<a href={item.href} target="_blank" rel="noreferrer">{item.title}</a>
+				<p>{item.meta}</p>
+				{item.embed && (
+					<div class="outreach-video">
+						<iframe
+							src={item.embed}
+							title={item.title}
+							loading="lazy"
+							allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+							referrerpolicy="strict-origin-when-cross-origin"
+							allowfullscreen
+						></iframe>
+					</div>
+				)}
+			</li>
+		))}
+	</ul>
+</Layout>
