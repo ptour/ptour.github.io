@@ -308,7 +308,7 @@ export const siteContent = {
 			description:
 				'Research areas, academic biography, career path, and academic links for Piotr Tourkine.',
 			shortBio:
-				'Piotr Tourkine is a theoretical physicist working in high-energy theory at LAPTh / CNRS in Annecy. His research lies at the intersection of quantum field theory, scattering amplitudes, the S-matrix, string theory, and quantum gravity, with a particular interest in analyticity, consistency, and high-energy behavior.',
+				'I am a theoretical physicist working on fundamental interactions. My research lies broadly in particle physics, quantum field theory, and string theory, with a particular interest in questions related to quantum gravity.',
 			researchParagraph:
 				'My work is centered on formal aspects of fundamental interactions. I am interested in how broad principles such as analyticity, unitarity, causality, and high-energy behavior constrain scattering processes and, more generally, the space of consistent theories.',
 			researchAreas: [
@@ -364,7 +364,7 @@ export const siteContent = {
 			description:
 				'Thèmes de recherche, biographie académique, parcours et liens utiles pour Piotr Tourkine.',
 			shortBio:
-				'Piotr Tourkine est physicien théoricien en physique des hautes énergies au LAPTh / CNRS à Annecy. Ses recherches se situent à l’intersection de la théorie quantique des champs, des amplitudes de diffusion, de la matrice S, de la théorie des cordes et de la gravité quantique, avec un intérêt particulier pour l’analyticité, la cohérence et le comportement à haute énergie.',
+				'Je suis physicien théoricien et je travaille sur les interactions fondamentales. Mes recherches portent largement sur la physique des particules, la théorie quantique des champs et la théorie des cordes, avec un intérêt particulier pour les questions liées à la gravité quantique.',
 			researchParagraph:
 				'Mes travaux portent sur des aspects formels des interactions fondamentales. Je m’intéresse à la manière dont des principes généraux tels que l’analyticité, l’unitarité, la causalité et le comportement à haute énergie contraignent les processus de diffusion et, plus largement, l’espace des théories cohérentes.',
 			researchAreas: [
