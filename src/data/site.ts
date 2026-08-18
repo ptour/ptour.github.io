@@ -57,7 +57,6 @@ export const siteIdentity = {
 	photo: withBase('/piotr-tourkine.jpg'),
 	links: {
 		cv: withBase('/cv.pdf'),
-		institutional: 'https://lapth.cnrs.fr/pg-nomin/tourkine/',
 		inspire: 'https://inspirehep.net/authors/1280395',
 		arxiv: 'https://arxiv.org/search/?searchtype=author&query=Tourkine%2C+P',
 		scholar: 'https://scholar.google.com/citations?user=O-n5g0kAAAAJ&hl=en',
