@@ -95,6 +95,55 @@ export const navigationLabels: Record<Lang, Record<RouteKey, string>> = {
 	},
 };
 
+// Amounts and dates as stated on the funders' own project pages. Emergence is
+// an internal CNRS call and has no public record, hence no href.
+export const funding = {
+	en: [
+		{
+			period: '2022-2026',
+			name: 'ANR JCJC — SPARTA',
+			amount: '315 k€',
+			role: 'principal investigator',
+			href: 'https://anr.fr/Projet-ANR-22-CE31-0017',
+		},
+		{
+			period: '2017-2019',
+			name: 'Marie Skłodowska-Curie Individual Fellowship — NewLoops',
+			amount: '175 k€',
+			role: 'fellow',
+			href: 'https://cordis.europa.eu/project/id/749793',
+		},
+		{
+			period: '2022-2023',
+			name: 'CNRS Emergence (INP)',
+			amount: '78 k€',
+			role: 'principal investigator',
+		},
+	],
+	fr: [
+		{
+			period: '2022-2026',
+			name: 'ANR JCJC — SPARTA',
+			amount: '315 k€',
+			role: 'porteur du projet',
+			href: 'https://anr.fr/Projet-ANR-22-CE31-0017',
+		},
+		{
+			period: '2017-2019',
+			name: 'Bourse individuelle Marie Skłodowska-Curie — NewLoops',
+			amount: '175 k€',
+			role: 'titulaire de la bourse',
+			href: 'https://cordis.europa.eu/project/id/749793',
+		},
+		{
+			period: '2022-2023',
+			name: 'CNRS Emergence (INP)',
+			amount: '78 k€',
+			role: 'porteur du projet',
+		},
+	],
+};
+
 export const careerTimeline = {
 	en: [
 		{
@@ -111,7 +160,7 @@ export const careerTimeline = {
 		},
 		{
 			period: '2017-2019',
-			text: 'CERN Fellow in the Theory Department, Marie Sklodowska-Curie grant Newloops, Geneva.',
+			text: 'CERN Fellow in the Theory Department, Geneva.',
 		},
 		{
 			period: '2014-2017',
@@ -141,7 +190,7 @@ export const careerTimeline = {
 		},
 		{
 			period: '2017-2019',
-			text: 'Fellow au CERN, département Théorie, bourse Marie Sklodowska-Curie Newloops, Genève.',
+			text: 'Fellow au CERN, département Théorie, Genève.',
 		},
 		{
 			period: '2014-2017',
@@ -287,6 +336,7 @@ export const siteContent = {
 			],
 			linksIntro:
 				'For full publication lists and institutional references, the profiles below are the most useful starting points.',
+			fundingIntro: 'Total directly managed: 590 k€. Selected grants:',
 		},
 		outreach: {
 			title: 'Outreach',
@@ -349,6 +399,7 @@ export const siteContent = {
 			],
 			linksIntro:
 				'Pour les listes complètes de publications et les références institutionnelles, les profils ci-dessous sont le point d’entrée le plus utile.',
+			fundingIntro: 'Total géré directement : 590 k€. Sélection de financements :',
 		},
 		outreach: {
 			title: 'Médiation scientifique',

@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/Section.astro';
-import { careerTimeline, siteContent, siteIdentity } from '../../data/site';
+import { careerTimeline, funding, siteContent, siteIdentity } from '../../data/site';
 
 const content = siteContent.en.cv;
 ---
@@ -24,6 +24,24 @@ const content = siteContent.en.cv;
 			<ul>
 				{careerTimeline.en.map((item) => (
 					<li><div class="timeline__period">{item.period}</div><div>{item.text}</div></li>
+				))}
+			</ul>
+		</div>
+	</Section>
+
+	<Section title="Funding" lede={content.fundingIntro}>
+		<div class="timeline">
+			<ul>
+				{funding.en.map((grant) => (
+					<li>
+						<div class="timeline__period">{grant.period}</div>
+						<div>
+							{grant.href
+								? <a href={grant.href}>{grant.name}</a>
+								: <span>{grant.name}</span>}
+							{`, ${grant.amount} — ${grant.role}`}
+						</div>
+					</li>
 				))}
 			</ul>
 		</div>
