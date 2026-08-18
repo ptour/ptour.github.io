@@ -10,7 +10,7 @@ interface Props {
 
 const { lang, currentRoute } = Astro.props;
 const labels = navigationLabels[lang];
-const navItems: RouteKey[] = ['home', 'outreach', 'openPositions', 'students'];
+const navItems: RouteKey[] = ['home', 'outreach', 'students', 'openPositions'];
 ---
 
 <aside class="profile-rail">
@@ -25,7 +25,9 @@ const navItems: RouteKey[] = ['home', 'outreach', 'openPositions', 'students'];
 		<div class="profile-rail__identity">
 			<a class="profile-rail__name" href={pathFor(lang, 'home')}>{siteIdentity.name}</a>
 			<p class="profile-rail__title">{siteIdentity.title[lang]}</p>
-			<p class="profile-rail__meta">{siteIdentity.affiliation}</p>
+			<p class="profile-rail__meta">
+				<a href={siteIdentity.links.lab}>{siteIdentity.labName}</a>{siteIdentity.affiliationSuffix}
+			</p>
 			<p class="profile-rail__meta">{siteIdentity.location}</p>
 		</div>
 

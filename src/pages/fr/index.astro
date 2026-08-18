@@ -8,7 +8,6 @@ const content = siteContent.fr.cv;
 
 <Layout lang="fr" route="home" title={siteIdentity.name} description={content.description}>
 	<section class="page-intro">
-		<p class="eyebrow">CV académique</p>
 		<h1>{siteIdentity.name}</h1>
 		<p class="page-intro__subtitle">{siteIdentity.title.fr} · {siteIdentity.affiliation}</p>
 		<p class="page-intro__lead">{content.shortBio}</p>
@@ -33,9 +32,13 @@ const content = siteContent.fr.cv;
 	<Section title="CV complet et profils de publications">
 		<ul class="link-list">
 			<li><a href={siteIdentity.links.cv}>CV complet (PDF)</a></li>
-			<li><a href={siteIdentity.links.inspire}>INSPIRE</a></li>
-			<li><a href={siteIdentity.links.scholar}>Google Scholar</a></li>
-			<li><a href={siteIdentity.links.arxiv}>Page auteur arXiv</a></li>
+			<li>
+				La liste complète des articles se trouve sur :{' '}
+				<a href={siteIdentity.links.inspire}>INSPIRE</a>{', '}
+				<a href={siteIdentity.links.scholar}>Google Scholar</a>{', '}
+				<a href={siteIdentity.links.arxiv}>arXiv</a>
+			</li>
+			<li><a href={siteIdentity.links.hdr}>Habilitation à diriger des recherches (PDF)</a></li>
 		</ul>
 	</Section>
 </Layout>

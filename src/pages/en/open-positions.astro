@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { siteContent } from '../../data/site';
+import { siteContent, siteIdentity } from '../../data/site';
 
 const content = siteContent.en.students;
 ---
@@ -14,6 +14,10 @@ const content = siteContent.en.students;
 	<section class="page-intro">
 		<p class="eyebrow">Opportunities</p>
 		<h1>Open positions</h1>
-		<p class="page-intro__lead">{content.prospectiveNote}</p>
+		<p class="page-intro__lead">
+			{content.prospectiveNote.before}
+			<a href={siteIdentity.links.lapthJobs} target="_blank" rel="noreferrer">{content.prospectiveNote.link}</a>
+			{content.prospectiveNote.after}
+		</p>
 	</section>
 </Layout>

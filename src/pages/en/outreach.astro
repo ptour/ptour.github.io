@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
 import { siteContent } from '../../data/site';
 
 const content = siteContent.en.outreach;
@@ -14,18 +15,44 @@ const kindLabels = {
 	talk: { icon: '🎙', label: 'Talk' },
 };
 
+// A date is an ISO string: 'YYYY-MM-DD' when the exact day is known,
+// 'YYYY-MM' when only the month is (rendered as "October 2025", sorted as the
+// start of that month, which plain lexical comparison already gives us).
+const dayFormatter = new Intl.DateTimeFormat('en-GB', {
+	day: 'numeric',
+	month: 'long',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
+
+const monthFormatter = new Intl.DateTimeFormat('en-GB', {
+	month: 'long',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
+
+const formatDate = (iso) =>
+	iso.length === 7
+		? monthFormatter.format(new Date(`${iso}-01T00:00:00Z`))
+		: dayFormatter.format(new Date(`${iso}T00:00:00Z`));
+
+// Most recent first, oldest last. Undated entries sink to the end.
+const byDateDesc = (a, b) => {
+	if (!a.date && !b.date) return 0;
+	if (!a.date) return 1;
+	if (!b.date) return -1;
+	return b.date.localeCompare(a.date);
+};
+
+// Pieces written or delivered by PT. Anything where a journalist holds the
+// byline belongs in pressItems below, not here.
 const items = [
 	{
 		kind: 'document',
 		title: 'Was string theory discovered by accident?',
 		meta: 'Article in The Conversation (in French)',
 		href: 'https://theconversation.com/la-theorie-des-cordes-a-t-elle-ete-decouverte-par-accident-273306',
-	},
-	{
-		kind: 'document',
-		title: 'Does string theory emerge naturally from general principles?',
-		meta: 'Interview in Pour la Science (in French)',
-		href: 'https://www.pourlascience.fr/sd/physique-theorique/la-theorie-des-cordes-emerge-t-elle-naturellement-a-partir-de-principes-generaux-29442.php',
+		date: '2026-03-18',
 	},
 	{
 		kind: 'talk-video',
@@ -33,14 +60,38 @@ const items = [
 		meta: 'Video recording (in French)',
 		href: 'https://www.youtube.com/watch?v=EWgQGz0waC0',
 		embed: 'https://www.youtube-nocookie.com/embed/EWgQGz0waC0',
+		date: '2026-06-25',
 	},
 	{
 		kind: 'talk',
 		title: 'Universality of interactions: are the laws of nature inevitable?',
 		meta: 'Brasserie des sciences, Annecy (in French; no recording)',
 		href: 'https://www.univ-smb.fr/event/brasserie-des-sciences-universalite-des-interactions-les-lois-de-la-nature-sont-elles-inevitables/',
+		date: '2026-03-30',
 	},
 ];
+
+// Articles by journalists in which PT is quoted as a source. Citation only —
+// deliberately no reproduction of the pieces themselves.
+const pressItems = [
+	{
+		outlet: 'Pour la Science',
+		title: 'Does string theory emerge naturally from general principles?',
+		byline: 'Sean Bailly',
+		note: 'in French',
+		href: 'https://www.pourlascience.fr/sd/physique-theorique/la-theorie-des-cordes-emerge-t-elle-naturellement-a-partir-de-principes-generaux-29442.php',
+		date: '2026-08-11',
+	},
+	{
+		outlet: 'Science et Vie',
+		title: 'Accelerating the measurement of the theory of everything…',
+		note: 'reader-letters column, in French',
+		date: '2025-10',
+	},
+];
+
+const sortedItems = [...items].sort(byDateDesc);
+const sortedPressItems = [...pressItems].sort(byDateDesc);
 ---
 
 <Layout lang="en" route="outreach" title={content.title} description={content.description}>
@@ -51,13 +102,16 @@ const items = [
 	</section>
 
 	<ul class="outreach-list">
-		{items.map((item) => (
+		{sortedItems.map((item) => (
 			<li>
 				<span class="outreach-kind" aria-label={kindLabels[item.kind].label}>
 					<span class="outreach-kind__icon" aria-hidden="true">{kindLabels[item.kind].icon}</span>
 					{kindLabels[item.kind].label}
 				</span>
-				<a href={item.href} target="_blank" rel="noreferrer">{item.title}</a>
+				{item.date && <time class="outreach-date" datetime={item.date}>{formatDate(item.date)}</time>}
+				{item.href
+					? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a>
+					: <span class="outreach-title">{item.title}</span>}
 				<p>{item.meta}</p>
 				{item.embed && (
 					<div class="outreach-video">
@@ -74,4 +128,22 @@ const items = [
 			</li>
 		))}
 	</ul>
+
+	<Section title="Quoted in the press" lede="Articles by journalists in which I am quoted as a source.">
+		<ul class="press-list">
+			{sortedPressItems.map((item) => (
+				<li>
+					<cite class="press-outlet">{item.outlet}</cite>
+					{', '}
+					<time datetime={item.date}>{formatDate(item.date)}</time>
+					{' — '}
+					{item.href
+						? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a>
+						: <span class="press-title">{item.title}</span>}
+					{item.byline && <span>{', '}{item.byline}</span>}
+					{item.note && <span>{' ('}{item.note}{')'}</span>}
+				</li>
+			))}
+		</ul>
+	</Section>
 </Layout>

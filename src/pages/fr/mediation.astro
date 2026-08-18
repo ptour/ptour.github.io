@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
 import { siteContent } from '../../data/site';
 
 const content = siteContent.fr.outreach;
@@ -14,18 +15,44 @@ const kindLabels = {
 	talk: { icon: '🎙', label: 'Conférence' },
 };
 
+// Une date est une chaîne ISO : « AAAA-MM-JJ » si le jour exact est connu,
+// « AAAA-MM » si seul le mois l'est (affiché « octobre 2025 », trié au début du
+// mois, ce que la comparaison lexicale donne déjà).
+const dayFormatter = new Intl.DateTimeFormat('fr-FR', {
+	day: 'numeric',
+	month: 'long',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
+
+const monthFormatter = new Intl.DateTimeFormat('fr-FR', {
+	month: 'long',
+	year: 'numeric',
+	timeZone: 'UTC',
+});
+
+const formatDate = (iso) =>
+	iso.length === 7
+		? monthFormatter.format(new Date(`${iso}-01T00:00:00Z`))
+		: dayFormatter.format(new Date(`${iso}T00:00:00Z`));
+
+// Le plus récent en haut, le plus ancien en bas. Les entrées sans date passent à la fin.
+const byDateDesc = (a, b) => {
+	if (!a.date && !b.date) return 0;
+	if (!a.date) return 1;
+	if (!b.date) return -1;
+	return b.date.localeCompare(a.date);
+};
+
+// Textes écrits ou conférences données par PT. Tout ce dont la signature revient
+// à un journaliste va dans pressItems ci-dessous, pas ici.
 const items = [
 	{
 		kind: 'document',
 		title: 'La théorie des cordes a-t-elle été découverte par accident ?',
 		meta: 'Article dans The Conversation',
 		href: 'https://theconversation.com/la-theorie-des-cordes-a-t-elle-ete-decouverte-par-accident-273306',
-	},
-	{
-		kind: 'document',
-		title: 'La théorie des cordes émerge-t-elle naturellement à partir de principes généraux ?',
-		meta: 'Entretien dans Pour la Science',
-		href: 'https://www.pourlascience.fr/sd/physique-theorique/la-theorie-des-cordes-emerge-t-elle-naturellement-a-partir-de-principes-generaux-29442.php',
+		date: '2026-03-18',
 	},
 	{
 		kind: 'talk-video',
@@ -33,14 +60,37 @@ const items = [
 		meta: 'Enregistrement vidéo',
 		href: 'https://www.youtube.com/watch?v=EWgQGz0waC0',
 		embed: 'https://www.youtube-nocookie.com/embed/EWgQGz0waC0',
+		date: '2026-06-25',
 	},
 	{
 		kind: 'talk',
 		title: 'Universalité des interactions : les lois de la nature sont-elles inévitables ?',
 		meta: 'Brasserie des sciences, Annecy (sans enregistrement)',
 		href: 'https://www.univ-smb.fr/event/brasserie-des-sciences-universalite-des-interactions-les-lois-de-la-nature-sont-elles-inevitables/',
+		date: '2026-03-30',
 	},
 ];
+
+// Articles de journalistes dans lesquels PT est cité comme source. Référence
+// seule — pas de reproduction des articles eux-mêmes.
+const pressItems = [
+	{
+		outlet: 'Pour la Science',
+		title: 'La théorie des cordes émerge-t-elle naturellement à partir de principes généraux ?',
+		byline: 'Sean Bailly',
+		href: 'https://www.pourlascience.fr/sd/physique-theorique/la-theorie-des-cordes-emerge-t-elle-naturellement-a-partir-de-principes-generaux-29442.php',
+		date: '2026-08-11',
+	},
+	{
+		outlet: 'Science et Vie',
+		title: 'Accélérer la mesure du grand tout…',
+		note: 'courrier des lecteurs',
+		date: '2025-10',
+	},
+];
+
+const sortedItems = [...items].sort(byDateDesc);
+const sortedPressItems = [...pressItems].sort(byDateDesc);
 ---
 
 <Layout lang="fr" route="outreach" title={content.title} description={content.description}>
@@ -51,13 +101,16 @@ const items = [
 	</section>
 
 	<ul class="outreach-list">
-		{items.map((item) => (
+		{sortedItems.map((item) => (
 			<li>
 				<span class="outreach-kind" aria-label={kindLabels[item.kind].label}>
 					<span class="outreach-kind__icon" aria-hidden="true">{kindLabels[item.kind].icon}</span>
 					{kindLabels[item.kind].label}
 				</span>
-				<a href={item.href} target="_blank" rel="noreferrer">{item.title}</a>
+				{item.date && <time class="outreach-date" datetime={item.date}>{formatDate(item.date)}</time>}
+				{item.href
+					? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a>
+					: <span class="outreach-title">{item.title}</span>}
 				<p>{item.meta}</p>
 				{item.embed && (
 					<div class="outreach-video">
@@ -74,4 +127,22 @@ const items = [
 			</li>
 		))}
 	</ul>
+
+	<Section title="Cité dans la presse" lede="Articles de journalistes dans lesquels je suis cité comme source.">
+		<ul class="press-list">
+			{sortedPressItems.map((item) => (
+				<li>
+					<cite class="press-outlet">{item.outlet}</cite>
+					{', '}
+					<time datetime={item.date}>{formatDate(item.date)}</time>
+					{' — '}
+					{item.href
+						? <a href={item.href} target="_blank" rel="noreferrer">{item.title}</a>
+						: <span class="press-title">{item.title}</span>}
+					{item.byline && <span>{', '}{item.byline}</span>}
+					{item.note && <span>{' ('}{item.note}{')'}</span>}
+				</li>
+			))}
+		</ul>
+	</Section>
 </Layout>

@@ -72,6 +72,16 @@ ul {
 	padding: 2rem 0 3.5rem;
 }
 
+/* The rail is a grid item, so its height comes from the tallest column. On a
+   short page (e.g. open positions) the content column is shorter than the
+   viewport, leaving the rail's background stopping partway down. Only applies
+   to the two-column layout; below 920px the rail is a banner above the text. */
+@media (min-width: 921px) {
+	.site-shell {
+		min-height: 100vh;
+	}
+}
+
 .profile-rail {
 	margin-top: -2rem;
 	margin-bottom: -3.5rem;
@@ -357,7 +367,8 @@ ul {
 	margin-top: 1.35rem;
 }
 
-.outreach-list a {
+.outreach-list a,
+.outreach-title {
 	font-weight: 600;
 }
 
@@ -371,6 +382,7 @@ ul {
 	display: inline-flex;
 	align-items: center;
 	gap: 0.4rem;
+	margin-right: 0.5rem;
 	margin-bottom: 0.35rem;
 	padding: 0.12rem 0.5rem;
 	border: 1px solid var(--line);
@@ -386,6 +398,36 @@ ul {
 .outreach-kind__icon {
 	font-size: 0.9rem;
 	line-height: 1;
+}
+
+.outreach-date {
+	margin-right: 0.5rem;
+	color: var(--muted);
+	font-size: 0.82rem;
+	font-variant-numeric: tabular-nums;
+	white-space: nowrap;
+}
+
+.press-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: var(--muted);
+	font-size: 0.92rem;
+	line-height: 1.55;
+}
+
+.press-list li + li {
+	margin-top: 0.5rem;
+}
+
+.press-outlet {
+	font-style: italic;
+	color: var(--text);
+}
+
+.press-title {
+	color: var(--text);
 }
 
 .outreach-video {

@@ -23,13 +23,20 @@ export const alternateLang: Record<Lang, Lang> = {
 	fr: 'en',
 };
 
+// Split out so the rail can link the lab name on its own, while `affiliation`
+// below stays a single string for the places that render it as plain text.
+const labName = "Laboratoire d'Annecy de Physique Théorique";
+const affiliationSuffix = ' / CNRS';
+
 export const siteIdentity = {
 	name: 'Piotr Tourkine',
+	labName,
+	affiliationSuffix,
 	title: {
 		en: 'Theoretical physicist',
 		fr: 'Physicien théoricien',
 	},
-	affiliation: "Laboratoire d'Annecy de Physique Théorique / CNRS",
+	affiliation: `${labName}${affiliationSuffix}`,
 	location: 'Annecy, France',
 	lastUpdated: {
 		en: 'Last updated: July 2026',
@@ -46,6 +53,9 @@ export const siteIdentity = {
 		inspire: 'https://inspirehep.net/authors/1280395',
 		arxiv: 'https://arxiv.org/search/?searchtype=author&query=Tourkine%2C+P',
 		scholar: 'https://scholar.google.com/citations?user=O-n5g0kAAAAJ&hl=en',
+		lapthJobs: 'https://www.lapth.cnrs.fr/emplois_stages/',
+		hdr: '/thesis-hdr.pdf',
+		lab: 'https://www.lapth.cnrs.fr/',
 	},
 };
 
@@ -313,8 +323,12 @@ export const siteContent = {
 				'Student-oriented introduction to Piotr Tourkine’s research areas and possible entry points.',
 			intro:
 				'My work is in theoretical high-energy physics, especially around quantum field theory, scattering amplitudes, the S-matrix, string theory, and quantum gravity. A simple way to summarize my interests is that I study the general principles that constrain possible physical theories.',
-			prospectiveNote:
-				'Please check the LAPTh webpage for current PhD and internship opportunities. When positions are available, details and application information will be posted here.',
+			// Split so the LAPTh reference can be rendered as a link in place.
+			prospectiveNote: {
+				before: 'Please check the ',
+				link: 'LAPTh webpage',
+				after: ' for current PhD and internship opportunities. When positions are available, details and application information will be posted here.',
+			},
 		},
 	},
 	fr: {
@@ -365,8 +379,12 @@ export const siteContent = {
 				'Présentation concise des thèmes de recherche de Piotr Tourkine à destination des étudiantes et étudiants.',
 			intro:
 				'Je travaille en physique théorique des hautes énergies, en particulier autour de la théorie quantique des champs, des amplitudes de diffusion, de la matrice S, de la théorie des cordes et de la gravité quantique. Une manière simple de résumer mes questions de recherche est la suivante : quels sont les principes généraux qui contraignent les théories physiques possibles ?',
-			prospectiveNote:
-				'Les offres de thèse et de stage en cours sont publiées sur le site du LAPTh, avec les informations pratiques pour candidater.',
+			// Découpé pour que la mention du LAPTh soit rendue comme un lien sur place.
+			prospectiveNote: {
+				before: 'Les offres de thèse et de stage en cours sont publiées sur le ',
+				link: 'site du LAPTh',
+				after: ', avec les informations pratiques pour candidater.',
+			},
 		},
 	},
 } as const;
