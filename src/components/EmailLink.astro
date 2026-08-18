@@ -4,19 +4,32 @@ interface Props {
 }
 
 const { lang } = Astro.props;
+
+// The address is written once here. The markup carries a readable but
+// scraper-unfriendly form, and the character codes the script needs, so a
+// visitor still gets a usable address if the script never runs — whether
+// because JavaScript is off or a server CSP blocks inline scripts.
+const address = 'piotr.tourkine@lapth.cnrs.fr';
+const display = address.replace('@', ' [at] ');
+const encoded = address.split('').map((char) => char.charCodeAt(0)).join(',');
 ---
 
-<a href="#" data-email-link>{lang === 'en' ? 'Send an email' : 'Envoyer un courriel'}</a>
+<!-- No href until the script supplies a real one: a mailto: built from the
+     obfuscated form would open a draft addressed to an invalid address. -->
+<a
+	data-email-link
+	data-email={encoded}
+	aria-label={lang === 'en' ? 'Email address' : 'Adresse électronique'}>{display}</a
+>
 
 <script is:inline>
 	(() => {
-		const local = [112, 105, 111, 116, 114, 46, 116, 111, 117, 114, 107, 105, 110, 101];
-		const domain = [108, 97, 112, 116, 104, 46, 99, 110, 114, 115, 46, 102, 114];
-		const decode = (codes) => String.fromCharCode(...codes);
-		const address = `${decode(local)}@${decode(domain)}`;
-
 		document.querySelectorAll('[data-email-link]').forEach((link) => {
+			const codes = link.getAttribute('data-email');
+			if (!codes) return;
+			const address = String.fromCharCode(...codes.split(',').map(Number));
 			link.setAttribute('href', `mailto:${address}`);
+			link.textContent = address;
 		});
 	})();
 </script>

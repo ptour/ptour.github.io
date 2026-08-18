@@ -1,6 +1,14 @@
 export type Lang = 'en' | 'fr';
 export type RouteKey = 'home' | 'cv' | 'outreach' | 'openPositions' | 'students';
 
+// Every internal URL must carry the deployment sub-path (see astro.config.mjs).
+// BASE_URL may or may not come with a trailing slash depending on how `base` is
+// written, so strip it and join with paths that already start with '/'. That
+// keeps route trailing slashes intact and makes a double slash impossible.
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+export const withBase = (path: string) => `${BASE}${path}`;
+
 export const routeMap: Record<Lang, Record<RouteKey, string>> = {
 	en: {
 		home: '/en/',
@@ -46,15 +54,15 @@ export const siteIdentity = {
 		en: 'Laboratoire d’Annecy de Physique Théorique, 9 Chemin de Bellevue, 74940 Annecy, France. Office 4.014.',
 		fr: 'Laboratoire d’Annecy de Physique Théorique, 9 Chemin de Bellevue, 74940 Annecy, France. Bureau 4.014.',
 	},
-	photo: '/piotr-tourkine.jpg',
+	photo: withBase('/piotr-tourkine.jpg'),
 	links: {
-		cv: '/cv.pdf',
+		cv: withBase('/cv.pdf'),
 		institutional: 'https://lapth.cnrs.fr/pg-nomin/tourkine/',
 		inspire: 'https://inspirehep.net/authors/1280395',
 		arxiv: 'https://arxiv.org/search/?searchtype=author&query=Tourkine%2C+P',
 		scholar: 'https://scholar.google.com/citations?user=O-n5g0kAAAAJ&hl=en',
 		lapthJobs: 'https://www.lapth.cnrs.fr/emplois_stages/',
-		hdr: '/thesis-hdr.pdf',
+		hdr: withBase('/thesis-hdr.pdf'),
 		lab: 'https://www.lapth.cnrs.fr/',
 	},
 };
@@ -390,9 +398,9 @@ export const siteContent = {
 } as const;
 
 export function pathFor(lang: Lang, route: RouteKey) {
-	return routeMap[lang][route];
+	return withBase(routeMap[lang][route]);
 }
 
 export function switchPath(lang: Lang, route: RouteKey) {
-	return routeMap[alternateLang[lang]][route];
+	return withBase(routeMap[alternateLang[lang]][route]);
 }

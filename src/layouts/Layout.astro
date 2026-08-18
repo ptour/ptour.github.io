@@ -1,7 +1,7 @@
 ---
 import ProfileRail from '../components/ProfileRail.astro';
 import '../styles/global.css';
-import { analytics, pathFor, switchPath, type Lang, type RouteKey } from '../data/site';
+import { analytics, pathFor, switchPath, withBase, type Lang, type RouteKey } from '../data/site';
 
 interface Props {
 	lang: Lang;
@@ -12,7 +12,9 @@ interface Props {
 
 const { lang, route, title, description } = Astro.props;
 const siteTitle = title === 'Piotr Tourkine' ? title : `${title} | Piotr Tourkine`;
-const alternate = switchPath(lang, route);
+// hreflang requires absolute URLs, so resolve the routes against `site`.
+const canonical = new URL(pathFor(lang, route), Astro.site).href;
+const alternate = new URL(switchPath(lang, route), Astro.site).href;
 ---
 
 <!doctype html>
@@ -22,10 +24,10 @@ const alternate = switchPath(lang, route);
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="description" content={description} />
 		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href={withBase('/favicon.svg')} />
+		<link rel="icon" href={withBase('/favicon.ico')} />
 		<link rel="alternate" hreflang={lang === 'en' ? 'fr' : 'en'} href={alternate} />
-		<link rel="alternate" hreflang={lang} href={pathFor(lang, route)} />
+		<link rel="alternate" hreflang={lang} href={canonical} />
 		<meta property="og:title" content={siteTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
