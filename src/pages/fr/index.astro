@@ -42,7 +42,12 @@ const content = siteContent.fr.cv;
 				{'Lien vers mon compte '}
 				<a href={siteIdentity.links.orcid}>ORCID</a>
 			</li>
-			<li><a href={siteIdentity.links.hdr}>Habilitation à diriger des recherches (PDF)</a></li>
+			<li>
+				{'Le texte de mon '}
+				<a href={siteIdentity.links.hdr}>habilitation à diriger des recherches</a>
+				{' (PDF), soutenue le '}
+				<time datetime="2026-03-26">26 mars 2026</time>
+			</li>
 		</ul>
 	</Section>
 </Layout>
