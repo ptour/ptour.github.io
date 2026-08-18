@@ -2,18 +2,18 @@
 import Layout from '../../layouts/Layout.astro';
 import { siteContent, siteIdentity } from '../../data/site';
 
-const content = siteContent.en.students;
+const content = siteContent.en.openPositions;
 ---
 
 <Layout
 	lang="en"
 	route="openPositions"
-	title="Open positions"
-	description="Current PhD and internship opportunities with Piotr Tourkine at LAPTh."
+	title={content.title}
+	description={content.description}
 >
 	<section class="page-intro">
 		<p class="eyebrow">Opportunities</p>
-		<h1>Open positions</h1>
+		<h1>{content.title}</h1>
 		<p class="page-intro__lead">
 			{content.prospectiveNote.before}
 			<a href={siteIdentity.links.lapthJobs} target="_blank" rel="noreferrer">{content.prospectiveNote.link}</a>

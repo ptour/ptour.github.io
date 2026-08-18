@@ -84,14 +84,14 @@ export const navigationLabels: Record<Lang, Record<RouteKey, string>> = {
 		cv: 'CV',
 		outreach: 'Outreach',
 		openPositions: 'Open positions',
-		students: 'Students',
+		students: 'Research and supervision',
 	},
 	fr: {
 		home: 'Accueil',
 		cv: 'CV',
 		outreach: 'Médiation',
-		openPositions: 'Postes ouverts',
-		students: 'Étudiantes et étudiants',
+		openPositions: 'Stages, Thèses, Postdoctorats',
+		students: 'Recherche et encadrement',
 	},
 };
 
@@ -106,8 +106,8 @@ export const routeSummaries = {
 			body: 'Articles and public talks about theoretical physics.',
 		},
 		students: {
-			title: 'Students',
-			body: 'An entry point into my research areas, with a few practical pointers.',
+			title: 'Research and supervision',
+			body: 'My research interests, and the researchers and students I supervise.',
 		},
 	},
 	fr: {
@@ -120,8 +120,8 @@ export const routeSummaries = {
 			body: 'Articles et conférences destinés à un public non spécialiste.',
 		},
 		students: {
-			title: 'Pour les étudiantes et étudiants',
-			body: 'Un point d’entrée dans mes thèmes de recherche, avec quelques indications pratiques.',
+			title: 'Recherche et encadrement',
+			body: 'Mes thèmes de recherche, et les personnes que j’encadre.',
 		},
 	},
 };
@@ -326,11 +326,17 @@ export const siteContent = {
 				'A selection of articles and public talks intended for audiences beyond my immediate research field.',
 		},
 		students: {
-			title: 'Students',
+			title: 'Research and supervision',
 			description:
-				'Student-oriented introduction to Piotr Tourkine’s research areas and possible entry points.',
+				'Research interests of Piotr Tourkine, and the researchers and students he supervises at LAPTh.',
 			intro:
-				'My work is in theoretical high-energy physics, especially around quantum field theory, scattering amplitudes, the S-matrix, string theory, and quantum gravity. A simple way to summarize my interests is that I study the general principles that constrain possible physical theories.',
+				'My research concerns the structure of scattering amplitudes in quantum field theory and string theory. I am particularly interested in the analytic and high-energy properties of the S-matrix, and in the constraints imposed by unitarity, causality, and consistency. These questions connect particle physics with broader problems in quantum gravity.',
+			supervisionIntro:
+				'Current and former researchers and students whom I have supervised or co-supervised are listed below.',
+		},
+		openPositions: {
+			title: 'Open positions',
+			description: 'Current PhD and internship opportunities with Piotr Tourkine at LAPTh.',
 			// Split so the LAPTh reference can be rendered as a link in place.
 			prospectiveNote: {
 				before: 'Please check the ',
@@ -382,11 +388,17 @@ export const siteContent = {
 				'Une sélection d’articles et de conférences destinés à un public plus large que celui de mon domaine de recherche.',
 		},
 		students: {
-			title: 'Étudiantes et étudiants',
+			title: 'Recherche et encadrement',
 			description:
-				'Présentation concise des thèmes de recherche de Piotr Tourkine à destination des étudiantes et étudiants.',
+				'Thèmes de recherche de Piotr Tourkine, et les personnes qu’il encadre au LAPTh.',
 			intro:
-				'Je travaille en physique théorique des hautes énergies, en particulier autour de la théorie quantique des champs, des amplitudes de diffusion, de la matrice S, de la théorie des cordes et de la gravité quantique. Une manière simple de résumer mes questions de recherche est la suivante : quels sont les principes généraux qui contraignent les théories physiques possibles ?',
+				'Mes recherches portent sur la structure des amplitudes de diffusion en théorie quantique des champs et en théorie des cordes. Je m’intéresse en particulier aux propriétés analytiques et au comportement à haute énergie de la matrice S, ainsi qu’aux contraintes imposées par l’unitarité, la causalité et la cohérence. Ces questions relient la physique des particules à des problèmes plus généraux de gravité quantique.',
+			supervisionIntro:
+				'Les chercheuses, chercheurs, étudiantes et étudiants que j’encadre, ou que j’ai encadrés ou coencadrés, sont présentés ci-dessous.',
+		},
+		openPositions: {
+			title: 'Stages, Thèses, Postdoctorats',
+			description: 'Offres de stages, de thèses et de postdoctorats avec Piotr Tourkine au LAPTh.',
 			// Découpé pour que la mention du LAPTh soit rendue comme un lien sur place.
 			prospectiveNote: {
 				before: 'Les offres de thèse et de stage en cours sont publiées sur le ',

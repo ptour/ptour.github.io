@@ -9,12 +9,12 @@ const content = siteContent.fr.students;
 
 <Layout lang="fr" route="students" title={content.title} description={content.description}>
 	<section class="page-intro">
-		<p class="eyebrow">Points d’entrée pour étudiants</p>
 		<h1>{content.title}</h1>
 		<p class="page-intro__lead">{content.intro}</p>
+		<p class="page-intro__body">{content.supervisionIntro}</p>
 	</section>
 
-	<Section title="Postdoctorantes et postdoctorants">
+	<Section title="Chercheuses et chercheurs postdoctoraux">
 		<ul class="supervision-list">
 			{supervisees.fr.postdocs.map((person) => <li><PersonRecord person={person} /></li>)}
 		</ul>

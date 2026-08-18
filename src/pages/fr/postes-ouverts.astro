@@ -2,18 +2,18 @@
 import Layout from '../../layouts/Layout.astro';
 import { siteContent, siteIdentity } from '../../data/site';
 
-const content = siteContent.fr.students;
+const content = siteContent.fr.openPositions;
 ---
 
 <Layout
 	lang="fr"
 	route="openPositions"
-	title="Postes ouverts"
-	description="Offres de thèse et de stage avec Piotr Tourkine au LAPTh."
+	title={content.title}
+	description={content.description}
 >
 	<section class="page-intro">
 		<p class="eyebrow">Opportunités</p>
-		<h1>Postes ouverts</h1>
+		<h1>{content.title}</h1>
 		<p class="page-intro__lead">
 			{content.prospectiveNote.before}
 			<a href={siteIdentity.links.lapthJobs} target="_blank" rel="noreferrer">{content.prospectiveNote.link}</a>
