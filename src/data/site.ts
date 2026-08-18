@@ -336,7 +336,7 @@ export const siteContent = {
 			],
 			linksIntro:
 				'For full publication lists and institutional references, the profiles below are the most useful starting points.',
-			fundingIntro: 'Total directly managed: 590 k€. Selected grants:',
+			fundingIntro: 'Total directly managed: 592.5 k€. Selected grants:',
 		},
 		outreach: {
 			title: 'Outreach',
@@ -399,7 +399,7 @@ export const siteContent = {
 			],
 			linksIntro:
 				'Pour les listes complètes de publications et les références institutionnelles, les profils ci-dessous sont le point d’entrée le plus utile.',
-			fundingIntro: 'Total géré directement : 590 k€. Sélection de financements :',
+			fundingIntro: 'Total géré directement : 592,5 k€. Sélection de financements :',
 		},
 		outreach: {
 			title: 'Médiation scientifique',
