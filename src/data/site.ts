@@ -364,7 +364,7 @@ export const siteContent = {
 			description:
 				'Thèmes de recherche, biographie académique, parcours et liens utiles pour Piotr Tourkine.',
 			shortBio:
-				'Je suis physicien théoricien et je travaille sur les interactions fondamentales. Mes recherches portent largement sur la physique des particules, la théorie quantique des champs et la théorie des cordes, avec un intérêt particulier pour les questions liées à la gravité quantique.',
+				'Je suis physicien théoricien et je travaille sur les interactions fondamentales. Mes recherches se situent principalement en physique des particules, en théorie quantique des champs et en théorie des cordes, avec un intérêt particulier pour les questions liées à la gravité quantique.',
 			researchParagraph:
 				'Mes travaux portent sur des aspects formels des interactions fondamentales. Je m’intéresse à la manière dont des principes généraux tels que l’analyticité, l’unitarité, la causalité et le comportement à haute énergie contraignent les processus de diffusion et, plus largement, l’espace des théories cohérentes.',
 			researchAreas: [
