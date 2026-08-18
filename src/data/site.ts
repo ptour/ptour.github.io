@@ -60,6 +60,7 @@ export const siteIdentity = {
 		inspire: 'https://inspirehep.net/authors/1280395',
 		arxiv: 'https://arxiv.org/search/?searchtype=author&query=Tourkine%2C+P',
 		scholar: 'https://scholar.google.com/citations?user=O-n5g0kAAAAJ&hl=en',
+		orcid: 'https://orcid.org/0000-0001-7517-6009',
 		lapthJobs: 'https://www.lapth.cnrs.fr/emplois_stages/',
 		hdr: withBase('/thesis-hdr.pdf'),
 		lab: 'https://www.lapth.cnrs.fr/',
