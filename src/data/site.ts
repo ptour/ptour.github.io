@@ -95,37 +95,6 @@ export const navigationLabels: Record<Lang, Record<RouteKey, string>> = {
 	},
 };
 
-export const routeSummaries = {
-	en: {
-		cv: {
-			title: 'Academic CV',
-			body: 'Research areas, career path, supervision, and academic links.',
-		},
-		outreach: {
-			title: 'Outreach',
-			body: 'Articles and public talks about theoretical physics.',
-		},
-		students: {
-			title: 'Research and supervision',
-			body: 'My research interests, and the researchers and students I supervise.',
-		},
-	},
-	fr: {
-		cv: {
-			title: 'CV académique',
-			body: 'Thèmes de recherche, parcours, encadrement et liens académiques.',
-		},
-		outreach: {
-			title: 'Médiation scientifique',
-			body: 'Articles et conférences destinés à un public non spécialiste.',
-		},
-		students: {
-			title: 'Recherche et encadrement',
-			body: 'Mes thèmes de recherche, et les personnes que j’encadre.',
-		},
-	},
-};
-
 export const careerTimeline = {
 	en: [
 		{
