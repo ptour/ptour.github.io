@@ -47,8 +47,8 @@ export const siteIdentity = {
 	affiliation: `${labName}${affiliationSuffix}`,
 	location: 'Annecy, France',
 	lastUpdated: {
-		en: 'Last updated: July 2026',
-		fr: 'Dernière mise à jour : juillet 2026',
+		en: 'Last updated: August 2026',
+		fr: 'Dernière mise à jour : août 2026',
 	},
 	office: {
 		en: 'Laboratoire d’Annecy de Physique Théorique, 9 Chemin de Bellevue, 74940 Annecy, France. Office 4.014.',
@@ -148,11 +148,7 @@ export const careerTimeline = {
 	en: [
 		{
 			period: 'Current',
-			text: 'Researcher at CNRS, LAPTh, Annecy, since 2021. Permanent position devoted to research.',
-		},
-		{
-			period: 'Current',
-			text: 'Chargé de cours at EPFL, Lausanne, since 2026.',
+			text: 'Permanent CNRS researcher since 2019; at LAPTh, Annecy since 2021. Chargé de cours at EPFL, Lausanne, since 2026.',
 		},
 		{
 			period: '2020-2021',
@@ -160,7 +156,7 @@ export const careerTimeline = {
 		},
 		{
 			period: '2019-2020',
-			text: 'Researcher at CNRS, LPTHE, Sorbonne Universite, Paris. Permanent position.',
+			text: 'CNRS researcher at LPTHE, Sorbonne Universite, Paris.',
 		},
 		{
 			period: '2017-2019',
@@ -182,11 +178,7 @@ export const careerTimeline = {
 	fr: [
 		{
 			period: 'En cours',
-			text: 'Chargé de recherches au CNRS, LAPTh, Annecy, depuis 2021. Poste permanent de recherche.',
-		},
-		{
-			period: 'En cours',
-			text: 'Chargé de cours à l’EPFL, Lausanne, depuis 2026.',
+			text: 'Chargé de recherches titulaire au CNRS depuis 2019 ; au LAPTh, Annecy, depuis 2021. Chargé de cours à l’EPFL, Lausanne, depuis 2026.',
 		},
 		{
 			period: '2020-2021',
@@ -194,7 +186,7 @@ export const careerTimeline = {
 		},
 		{
 			period: '2019-2020',
-			text: 'Chargé de recherches au CNRS, LPTHE, Sorbonne Université, Paris. Poste permanent.',
+			text: 'Chargé de recherches au CNRS, LPTHE, Sorbonne Université, Paris.',
 		},
 		{
 			period: '2017-2019',
