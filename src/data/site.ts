@@ -352,6 +352,10 @@ export const siteContent = {
 				'My research concerns the structure of scattering amplitudes in quantum field theory and string theory. I am particularly interested in the analytic and high-energy properties of the S-matrix, and in the constraints imposed by unitarity, causality, and consistency. These questions connect particle physics with broader problems in quantum gravity.',
 			supervisionIntro:
 				'Current and former researchers and students whom I have supervised or co-supervised are listed below.',
+			photo: {
+				alt: 'Piotr Tourkine at a blackboard, discussing equations with two students',
+				caption: 'At the blackboard, 2026 (credits: USMB)',
+			},
 		},
 		openPositions: {
 			title: 'Open positions',
@@ -415,6 +419,10 @@ export const siteContent = {
 				'Mes recherches portent sur la structure des amplitudes de diffusion en théorie quantique des champs et en théorie des cordes. Je m’intéresse en particulier aux propriétés analytiques et au comportement à haute énergie de la matrice S, ainsi qu’aux contraintes imposées par l’unitarité, la causalité et la cohérence. Ces questions relient la physique des particules à des problèmes plus généraux de gravité quantique.',
 			supervisionIntro:
 				'Les chercheuses, chercheurs, étudiantes et étudiants que j’encadre, ou que j’ai encadrés ou coencadrés, sont présentés ci-dessous.',
+			photo: {
+				alt: 'Piotr Tourkine au tableau, discutant d’équations avec deux étudiants',
+				caption: 'Au tableau, 2026 (crédits : USMB)',
+			},
 		},
 		openPositions: {
 			title: 'Stages, Thèses, Postdoctorats',

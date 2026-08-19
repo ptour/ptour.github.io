@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Section from '../../components/Section.astro';
 import PersonRecord from '../../components/PersonRecord.astro';
-import { siteContent, supervisees } from '../../data/site';
+import { siteContent, supervisees, withBase } from '../../data/site';
 
 const content = siteContent.fr.students;
 ---
@@ -13,6 +13,17 @@ const content = siteContent.fr.students;
 		<p class="page-intro__lead">{content.intro}</p>
 		<p class="page-intro__body">{content.supervisionIntro}</p>
 	</section>
+
+	<figure class="page-figure">
+		<img
+			src={withBase('/blackboard.jpg')}
+			alt={content.photo.alt}
+			width="1800"
+			height="1200"
+			loading="lazy"
+		/>
+		<figcaption>{content.photo.caption}</figcaption>
+	</figure>
 
 	<Section title="Chercheuses et chercheurs postdoctoraux">
 		<ul class="supervision-list">

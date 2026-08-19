@@ -408,6 +408,60 @@ ul {
 	white-space: nowrap;
 }
 
+/* Wide photo band. The figure lives inside .content-column, which is capped at
+   --article, so it is widened past that cap only above 1200px, where the main
+   grid column is known to have ~8.75rem of slack. Below that it simply fills
+   the text column, so it can never push the page sideways. */
+.page-figure {
+	position: relative;
+	margin: 1.7rem 0 0;
+	overflow: hidden;
+	border: 1px solid var(--line);
+	border-radius: 4px;
+	line-height: 0;
+}
+
+@media (min-width: 1200px) {
+	.page-figure {
+		width: calc(100% + 8rem);
+	}
+}
+
+.page-figure img {
+	display: block;
+	width: 100%;
+	height: auto;
+	transition: transform 600ms ease;
+}
+
+.page-figure:hover img,
+.page-figure:focus-within img {
+	transform: scale(1.03);
+}
+
+.page-figure figcaption {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: 3rem 1rem 0.85rem;
+	background: linear-gradient(to top, rgba(8, 16, 22, 0.72), rgba(8, 16, 22, 0));
+	color: #fff;
+	font-size: 0.85rem;
+	line-height: 1.4;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.page-figure img {
+		transition: none;
+	}
+
+	.page-figure:hover img,
+	.page-figure:focus-within img {
+		transform: none;
+	}
+}
+
 .press-list {
 	margin: 0;
 	padding: 0;
