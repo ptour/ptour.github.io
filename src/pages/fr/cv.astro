@@ -47,6 +47,12 @@ const content = siteContent.fr.cv;
 		</div>
 	</Section>
 
+	<Section title="Responsabilités collectives">
+		<ul class="bullet-list">
+			{content.academicService.map((item) => <li>{item}</li>)}
+		</ul>
+	</Section>
+
 	<Section title="Encadrement">
 		<ul class="bullet-list">
 			{supervisees.fr.postdocs.map((person) => <li><PersonRecord person={person} /></li>)}
