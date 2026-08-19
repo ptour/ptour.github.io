@@ -356,7 +356,9 @@ export const siteContent = {
 			description:
 				'Research interests of Piotr Tourkine, and the researchers and students he supervises at LAPTh.',
 			intro:
-				'My research concerns the S-matrix of quantum field theory beyond perturbation theory. The same questions arise in confining gauge theories and in quantum gravity, where they lead to string theory: graviton and string scattering amplitudes are where the two subjects meet most directly.',
+				'My research explores questions at the interface of strongly interacting and confining quantum field theories, gravity, and string theory. I approach these problems through scattering amplitudes, using bootstrap, non-perturbative, and model-independent methods to extract information that is difficult to access with conventional perturbative techniques.',
+			researchDetail:
+				'My work relies on several kinds of techniques, ranging from purely analytical methods in quantum field theory, string theory, and mathematics to numerical methods based on machine learning and semidefinite optimization.',
 			supervisionIntro:
 				'Current and former researchers and students whom I have supervised or co-supervised are listed below.',
 			photo: {
@@ -435,7 +437,9 @@ export const siteContent = {
 			description:
 				'Thèmes de recherche de Piotr Tourkine, et les personnes qu’il encadre au LAPTh.',
 			intro:
-				'Mes recherches portent sur la matrice S de la théorie quantique des champs au-delà de la théorie des perturbations. Les mêmes questions se posent dans les théories de jauge confinantes et en gravité quantique, où elles mènent à la théorie des cordes : les amplitudes de diffusion de gravitons et de cordes sont le point de rencontre le plus direct entre les deux domaines.',
+				'Mes recherches portent sur des questions à l’interface des théories quantiques des champs fortement couplées et confinantes, de la gravitation et de la théorie des cordes. J’aborde ces problèmes à travers les amplitudes de diffusion, en utilisant des méthodes de bootstrap, non perturbatives et indépendantes des modèles, afin d’extraire des informations difficilement accessibles par les techniques perturbatives conventionnelles.',
+			researchDetail:
+				'Mes travaux font appel à des techniques variées, allant de méthodes purement analytiques en théorie quantique des champs, en théorie des cordes et en mathématiques, à des méthodes numériques fondées sur l’apprentissage automatique et l’optimisation semi-définie.',
 			supervisionIntro:
 				'Les chercheuses, chercheurs, étudiantes et étudiants que j’encadre, ou que j’ai encadrés ou coencadrés, sont présentés ci-dessous.',
 			photo: {
