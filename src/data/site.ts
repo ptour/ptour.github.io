@@ -147,8 +147,12 @@ export const funding = {
 export const careerTimeline = {
 	en: [
 		{
-			period: '2021-',
-			text: 'Researcher at CNRS, LAPTh, Annecy. Permanent position devoted to research.',
+			period: 'Current',
+			text: 'Researcher at CNRS, LAPTh, Annecy, since 2021. Permanent position devoted to research.',
+		},
+		{
+			period: 'Current',
+			text: 'Chargé de cours at EPFL, Lausanne, since 2026.',
 		},
 		{
 			period: '2020-2021',
@@ -177,8 +181,12 @@ export const careerTimeline = {
 	],
 	fr: [
 		{
-			period: '2021-',
-			text: 'Chargé de recherches au CNRS, LAPTh, Annecy. Poste permanent de recherche.',
+			period: 'En cours',
+			text: 'Chargé de recherches au CNRS, LAPTh, Annecy, depuis 2021. Poste permanent de recherche.',
+		},
+		{
+			period: 'En cours',
+			text: 'Chargé de cours à l’EPFL, Lausanne, depuis 2026.',
 		},
 		{
 			period: '2020-2021',
@@ -337,6 +345,13 @@ export const siteContent = {
 			linksIntro:
 				'For full publication lists and institutional references, the profiles below are the most useful starting points.',
 			fundingIntro: 'Total directly managed: 592.5 k€. Selected grants:',
+			academicService: [
+				'Elected member of the CNRS National Committee for theoretical physics, 2021–2025, with responsibilities for recruitment, evaluation of researchers and laboratories, and promotions.',
+				'Reviewer for the ANR, NSERC, and Swiss National Science Foundation funding agencies, 2024–present.',
+				'Member of two maître de conférences selection committees in 2024: Sorbonne Université (LPTHE) and Université Savoie Mont Blanc (LAPTh).',
+				'Organization of selected international conferences and schools: Cargèse schools (2021 and 2026), Quy Nhon schools (2023 and 2025), Strings 2024 at CERN, and Amplitude Bootstrap: from Flat to Curved Space (2026).',
+				'Regular referee for journals in high-energy and mathematical physics since 2014.',
+			],
 		},
 		outreach: {
 			title: 'Outreach',
@@ -409,6 +424,13 @@ export const siteContent = {
 			linksIntro:
 				'Pour les listes complètes de publications et les références institutionnelles, les profils ci-dessous sont le point d’entrée le plus utile.',
 			fundingIntro: 'Total géré directement : 592,5 k€. Sélection de financements :',
+			academicService: [
+				'Membre élu du Comité national du CNRS pour la physique théorique de 2021 à 2025, chargé notamment du recrutement, de l’évaluation des chercheuses, chercheurs et laboratoires, ainsi que des promotions.',
+				'Expert pour les agences de financement ANR, NSERC et Fonds national suisse, depuis 2024.',
+				'Membre de deux comités de sélection de maîtres de conférences en 2024 : Sorbonne Université (LPTHE) et Université Savoie Mont Blanc (LAPTh).',
+				'Organisation d’une sélection de conférences et d’écoles internationales : écoles de Cargèse (2021 et 2026), écoles de Quy Nhon (2023 et 2025), Strings 2024 au CERN et Amplitude Bootstrap: from Flat to Curved Space (2026).',
+				'Rapporteur régulier pour des revues de physique des hautes énergies et de physique mathématique depuis 2014.',
+			],
 		},
 		outreach: {
 			title: 'Médiation scientifique',
