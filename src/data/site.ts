@@ -366,6 +366,7 @@ export const siteContent = {
 				link: 'LAPTh webpage',
 				after: ' for current PhD and internship opportunities. When positions are available, details and application information will be posted here.',
 			},
+			groupNote: 'Members of the group visit CERN regularly.',
 		},
 	},
 	fr: {
@@ -433,6 +434,7 @@ export const siteContent = {
 				link: 'site du LAPTh',
 				after: ', avec les informations pratiques pour candidater.',
 			},
+			groupNote: 'Les membres du groupe se rendent régulièrement au CERN.',
 		},
 	},
 } as const;
