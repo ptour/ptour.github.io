@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { siteContent, siteIdentity } from '../../data/site';
+import { siteContent, siteIdentity, withBase } from '../../data/site';
 
 const content = siteContent.fr.openPositions;
 ---
@@ -21,4 +21,15 @@ const content = siteContent.fr.openPositions;
 		</p>
 		<p class="page-intro__body">{content.groupNote}</p>
 	</section>
+
+	<figure class="page-figure">
+		<img
+			src={withBase('/lake-annecy.jpg')}
+			alt={content.photo.alt}
+			width="1800"
+			height="919"
+			loading="lazy"
+		/>
+		<figcaption>{content.photo.caption}</figcaption>
+	</figure>
 </Layout>
