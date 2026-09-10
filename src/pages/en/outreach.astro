@@ -9,10 +9,12 @@ const content = siteContent.en.outreach;
 //   'document'   → written piece (article, essay, notes)
 //   'talk-video' → talk with a recording (embedded below)
 //   'talk'       → talk without a recording
+//   'radio'      → broadcast or podcast appearance as a guest
 const kindLabels = {
 	document: { icon: '📄', label: 'Text / document' },
 	'talk-video': { icon: '🎥', label: 'Talk — video' },
 	talk: { icon: '🎙', label: 'Talk' },
+	radio: { icon: '📻', label: 'Radio — interview' },
 };
 
 // A date is an ISO string: 'YYYY-MM-DD' when the exact day is known,
@@ -47,6 +49,13 @@ const byDateDesc = (a, b) => {
 // Pieces written or delivered by PT. Anything where a journalist holds the
 // byline belongs in pressItems below, not here.
 const items = [
+	{
+		kind: 'radio',
+		title: 'String theory: the knots of physics',
+		meta: 'La Science, CQFD, France Culture, with Marios Petropoulos (in French, 58 min)',
+		href: 'https://www.radiofrance.fr/franceculture/podcasts/la-science-cqfd/theorie-des-cordes-4027459',
+		date: '2026-09-08',
+	},
 	{
 		kind: 'document',
 		title: 'Was string theory discovered by accident?',

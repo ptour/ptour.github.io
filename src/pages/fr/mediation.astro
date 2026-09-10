@@ -9,10 +9,12 @@ const content = siteContent.fr.outreach;
 //   'document'   → écrit (article, essai, notes)
 //   'talk-video' → exposé avec enregistrement (intégré ci-dessous)
 //   'talk'       → exposé sans enregistrement
+//   'radio'      → émission ou podcast en tant qu'invité
 const kindLabels = {
 	document: { icon: '📄', label: 'Texte / document' },
 	'talk-video': { icon: '🎥', label: 'Conférence — vidéo' },
 	talk: { icon: '🎙', label: 'Conférence' },
+	radio: { icon: '📻', label: 'Radio — entretien' },
 };
 
 // Une date est une chaîne ISO : « AAAA-MM-JJ » si le jour exact est connu,
@@ -47,6 +49,13 @@ const byDateDesc = (a, b) => {
 // Textes écrits ou conférences données par PT. Tout ce dont la signature revient
 // à un journaliste va dans pressItems ci-dessous, pas ici.
 const items = [
+	{
+		kind: 'radio',
+		title: 'Théorie des cordes : les nœuds de la physique',
+		meta: 'La Science, CQFD, France Culture, avec Marios Petropoulos (58 min)',
+		href: 'https://www.radiofrance.fr/franceculture/podcasts/la-science-cqfd/theorie-des-cordes-4027459',
+		date: '2026-09-08',
+	},
 	{
 		kind: 'document',
 		title: 'La théorie des cordes a-t-elle été découverte par accident ?',
