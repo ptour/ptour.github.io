@@ -47,8 +47,8 @@ export const siteIdentity = {
 	affiliation: `${labName}${affiliationSuffix}`,
 	location: 'Annecy, France',
 	lastUpdated: {
-		en: 'Last updated: August 2026',
-		fr: 'Dernière mise à jour : août 2026',
+		en: 'Last updated: September 2026',
+		fr: 'Dernière mise à jour : septembre 2026',
 	},
 	office: {
 		en: 'Laboratoire d’Annecy de Physique Théorique, 9 Chemin de Bellevue, 74940 Annecy, France. Office 4.014.',
