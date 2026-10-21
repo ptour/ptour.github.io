@@ -3,7 +3,7 @@ interface Props {
 	person: {
 		label: string;
 		inspire: string;
-		scholar: string;
+		scholar?: string;
 	};
 }
 
@@ -13,5 +13,5 @@ const { person } = Astro.props;
 <span>{person.label}</span>
 <span class="person-record__links">
 	<a href={person.inspire} target="_blank" rel="noreferrer">INSPIRE</a>
-	<a href={person.scholar} target="_blank" rel="noreferrer">Scholar</a>
+	{person.scholar && <a href={person.scholar} target="_blank" rel="noreferrer">Scholar</a>}
 </span>

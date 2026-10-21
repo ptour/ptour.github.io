@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Section from '../../components/Section.astro';
 import { siteContent, siteIdentity, withBase } from '../../data/site';
 
 const content = siteContent.fr.openPositions;
@@ -20,6 +21,17 @@ const content = siteContent.fr.openPositions;
 			{content.prospectiveNote.after}
 		</p>
 	</section>
+
+	<Section title={content.internships.title} lede={content.internships.lede}>
+		<ul class="link-list">
+			{content.internships.items.map((item) => (
+				<li>
+					<a href={item.pdf}>{item.title}</a>
+					{' (PDF; '}<a href={item.otherPdf}>{content.internships.otherLangLabel}</a>{')'}
+				</li>
+			))}
+		</ul>
+	</Section>
 
 	<figure class="page-figure">
 		<img

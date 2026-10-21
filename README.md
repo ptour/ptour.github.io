@@ -1,46 +1,36 @@
-# Astro Starter Kit: Basics
+# Piotr Tourkine — personal academic website
+
+Static bilingual (EN/FR) site built with Astro. Served at
+https://lapth.cnrs.fr/pg-nomin/tourkine/
+
+## Where to edit
+
+- Almost all text, links and lists: `src/data/site.ts`
+- Page layouts and section headings: `src/pages/en/` and `src/pages/fr/`
+- PDFs and images: `public/` (e.g. replace `public/cv.pdf` to update the CV)
+
+## Build
 
 ```sh
-npm create astro@latest -- --template basics
+npm install      # first time only
+npm run dev      # preview at http://localhost:4321/pg-nomin/tourkine/
+npm run build    # writes the final site to ./dist/
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## Updating the live site
 
-## 🚀 Project Structure
+From inside the lab network, or connected to the lab VPN:
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+```sh
+npm run deploy
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+This mounts `smb://fileb.lapp.in2p3.fr/pg-nomin-lapth` if needed, builds the
+site, lists what will change on the server, and asks for confirmation before
+copying (with rsync). Then check the live site (hard refresh: ⌘⇧R).
 
-## 🧞 Commands
+Settings (share address, folder name) are at the top of `scripts/deploy.sh`.
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+By hand, if the script fails: run `npm run build`, open the share in the
+Finder (⌘K, address above), and copy the **contents** of `dist/` into the
+site's folder, replacing the existing files.

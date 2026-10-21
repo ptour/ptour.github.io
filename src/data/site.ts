@@ -47,8 +47,8 @@ export const siteIdentity = {
 	affiliation: `${labName}${affiliationSuffix}`,
 	location: 'Annecy, France',
 	lastUpdated: {
-		en: 'Last updated: September 2026',
-		fr: 'Dernière mise à jour : septembre 2026',
+		en: 'Last updated: October 2026',
+		fr: 'Dernière mise à jour : octobre 2026',
 	},
 	office: {
 		en: 'Laboratoire d’Annecy de Physique Théorique, 9 Chemin de Bellevue, 74940 Annecy, France. Office 4.014.',
@@ -63,6 +63,7 @@ export const siteIdentity = {
 		orcid: 'https://orcid.org/0000-0001-7517-6009',
 		lapthJobs: 'https://www.lapth.cnrs.fr/emplois_stages/',
 		hdr: withBase('/thesis-hdr.pdf'),
+		seminar: 'https://sites.google.com/view/neural-collisions',
 		lab: 'https://www.lapth.cnrs.fr/',
 	},
 };
@@ -151,12 +152,16 @@ export const careerTimeline = {
 			text: 'Permanent CNRS researcher since 2019; at LAPTh, Annecy since 2021. Chargé de cours at EPFL, Lausanne, since 2026.',
 		},
 		{
+			period: '2026',
+			text: 'Habilitation à diriger des recherches (HdR), Université Savoie Mont Blanc.',
+		},
+		{
 			period: '2020-2021',
 			text: 'Scientific associate at CERN, on leave from CNRS.',
 		},
 		{
 			period: '2019-2020',
-			text: 'CNRS researcher at LPTHE, Sorbonne Universite, Paris.',
+			text: 'CNRS researcher at LPTHE, Sorbonne Université, Paris.',
 		},
 		{
 			period: '2017-2019',
@@ -168,17 +173,21 @@ export const careerTimeline = {
 		},
 		{
 			period: '2011-2014',
-			text: 'PhD in theoretical physics at IPhT, CEA Saclay, Sorbonne Universite. Advisor: Pierre Vanhove.',
+			text: 'PhD in theoretical physics at IPhT, CEA Saclay, Sorbonne Université. Advisor: Pierre Vanhove.',
 		},
 		{
 			period: '2007-2011',
-			text: 'Ecole normale superieure de Paris.',
+			text: 'École normale supérieure de Paris.',
 		},
 	],
 	fr: [
 		{
 			period: 'En cours',
 			text: 'Chargé de recherches titulaire au CNRS depuis 2019 ; au LAPTh, Annecy, depuis 2021. Chargé de cours à l’EPFL, Lausanne, depuis 2026.',
+		},
+		{
+			period: '2026',
+			text: 'Habilitation à diriger des recherches (HDR), Université Savoie Mont Blanc.',
 		},
 		{
 			period: '2020-2021',
@@ -213,17 +222,16 @@ export const supervisees = {
 			{
 				label: 'Simon Metayer, 2025-2026 (ANR SPARTA)',
 				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Simon%20Metayer',
-				scholar: 'https://scholar.google.com/scholar?q=%22Simon+Metayer%22',
+				scholar: 'https://scholar.google.com/citations?user=kj7LmKkAAAAJ',
 			},
 			{
-				label: 'Mehmet Gummus, 2023-2026 (ANR SPARTA)',
+				label: 'Mehmet Asım Gümüş, 2023-2026 (ANR SPARTA)',
 				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Mehmet%20Asim%20Gumus',
-				scholar: 'https://scholar.google.com/scholar?q=%22Mehmet+Asim+Gumus%22',
+				scholar: 'https://scholar.google.com/citations?user=ck2p6OIAAAAJ',
 			},
 			{
 				label: 'Yihong Wang, 2022-2023 (CNRS Emergence)',
 				inspire: 'https://inspirehep.net/authors/1509995',
-				scholar: 'https://scholar.google.com/scholar?q=%22Yihong+Wang%22+hep-th',
 			},
 		],
 		masters: [
@@ -239,17 +247,14 @@ export const supervisees = {
 			{
 				label: 'Antoine Villey, 2025-2028',
 				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Antoine%20Villey',
-				scholar: 'https://scholar.google.com/scholar?q=%22Antoine+Villey%22+physics',
 			},
 			{
 				label: 'Damien Leflot, 2023-2026; subsequently a postdoctoral researcher at the University of Pisa',
 				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Damien%20Leflot',
-				scholar: 'https://scholar.google.com/scholar?q=%22Damien+Leflot%22',
 			},
 			{
 				label: 'Felipe Figueroa, 2021-2024; subsequently a postdoctoral researcher in Mons',
-				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Felipe%20Figueroa',
-				scholar: 'https://scholar.google.com/scholar?q=%22Felipe+Figueroa%22+physics',
+				inspire: 'https://inspirehep.net/authors/1946810',
 			},
 		],
 	},
@@ -258,17 +263,16 @@ export const supervisees = {
 			{
 				label: 'Simon Metayer, 2025-2026 (ANR SPARTA)',
 				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Simon%20Metayer',
-				scholar: 'https://scholar.google.com/scholar?q=%22Simon+Metayer%22',
+				scholar: 'https://scholar.google.com/citations?user=kj7LmKkAAAAJ',
 			},
 			{
-				label: 'Mehmet Gummus, 2023-2026 (ANR SPARTA)',
+				label: 'Mehmet Asım Gümüş, 2023-2026 (ANR SPARTA)',
 				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Mehmet%20Asim%20Gumus',
-				scholar: 'https://scholar.google.com/scholar?q=%22Mehmet+Asim+Gumus%22',
+				scholar: 'https://scholar.google.com/citations?user=ck2p6OIAAAAJ',
 			},
 			{
 				label: 'Yihong Wang, 2022-2023 (CNRS Émergence)',
 				inspire: 'https://inspirehep.net/authors/1509995',
-				scholar: 'https://scholar.google.com/scholar?q=%22Yihong+Wang%22+hep-th',
 			},
 		],
 		masters: [
@@ -284,17 +288,14 @@ export const supervisees = {
 			{
 				label: 'Antoine Villey, 2025-2028',
 				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Antoine%20Villey',
-				scholar: 'https://scholar.google.com/scholar?q=%22Antoine+Villey%22+physics',
 			},
 			{
 				label: 'Damien Leflot, 2023-2026 ; puis postdoctorant à l’Université de Pise',
 				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Damien%20Leflot',
-				scholar: 'https://scholar.google.com/scholar?q=%22Damien+Leflot%22',
 			},
 			{
 				label: 'Felipe Figueroa, 2021-2024 ; puis postdoctorant à Mons',
-				inspire: 'https://inspirehep.net/literature?sort=mostrecent&q=a%20Felipe%20Figueroa',
-				scholar: 'https://scholar.google.com/scholar?q=%22Felipe+Figueroa%22+physics',
+				inspire: 'https://inspirehep.net/authors/1946810',
 			},
 		],
 	},
@@ -375,6 +376,23 @@ export const siteContent = {
 				link: 'LAPTh webpage',
 				after: ' for current PhD and internship opportunities. When positions are available, details and application information will be posted here.',
 			},
+			internships: {
+				title: 'M2 internships — Spring 2027',
+				lede: 'Two projects on deciphering the S-matrix, from hadrons to strings. Curious students are warmly welcome to get in touch by email.',
+				otherLangLabel: 'version française',
+				items: [
+					{
+						title: 'From d = 4 to d = ∞ and back: taming strongly coupled quantum field theory with a 1/d expansion',
+						pdf: withBase('/internships/LAPTh_stage_M2_2026-2027_large-d_GB.pdf'),
+						otherPdf: withBase('/internships/LAPTh_stage_M2_2026-2027_large-d_FR.pdf'),
+					},
+					{
+						title: 'Solving the S-matrix with machine learning: how fast can quantum interactions grow?',
+						pdf: withBase('/internships/LAPTh_stage_M2_2026-2027_Smatrix-ML_GB.pdf'),
+						otherPdf: withBase('/internships/LAPTh_stage_M2_2026-2027_Smatrix-ML_FR.pdf'),
+					},
+				],
+			},
 			photo: {
 				alt: 'Lake Annecy at sunset, with the surrounding mountains in silhouette',
 				caption: 'Lake Annecy, a short distance from the laboratory',
@@ -454,6 +472,23 @@ export const siteContent = {
 				before: 'Les offres de thèse et de stage en cours sont publiées sur le ',
 				link: 'site du LAPTh',
 				after: ', avec les informations pratiques pour candidater.',
+			},
+			internships: {
+				title: 'Stages de M2 — printemps 2027',
+				lede: 'Deux sujets pour déchiffrer la matrice S, des hadrons aux cordes. Les étudiantes et étudiants curieux sont les bienvenus pour en discuter par e-mail.',
+				otherLangLabel: 'English version',
+				items: [
+					{
+						title: 'De d = 4 à d = ∞ et retour : dompter la théorie quantique des champs à fort couplage par un développement en 1/d',
+						pdf: withBase('/internships/LAPTh_stage_M2_2026-2027_large-d_FR.pdf'),
+						otherPdf: withBase('/internships/LAPTh_stage_M2_2026-2027_large-d_GB.pdf'),
+					},
+					{
+						title: 'Résoudre la matrice S par apprentissage automatique : à quelle vitesse une interaction quantique peut-elle croître ?',
+						pdf: withBase('/internships/LAPTh_stage_M2_2026-2027_Smatrix-ML_FR.pdf'),
+						otherPdf: withBase('/internships/LAPTh_stage_M2_2026-2027_Smatrix-ML_GB.pdf'),
+					},
+				],
 			},
 			photo: {
 				alt: 'Le lac d’Annecy au coucher du soleil, les montagnes en contre-jour',
