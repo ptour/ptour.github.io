@@ -1,7 +1,7 @@
 ---
 import ProfileRail from '../components/ProfileRail.astro';
 import '../styles/global.css';
-import { analytics, pathFor, switchPath, withBase, type Lang, type RouteKey } from '../data/site';
+import { alternateLang, analytics, routeMap, withBase, type Lang, type RouteKey } from '../data/site';
 
 interface Props {
 	lang: Lang;
@@ -12,9 +12,11 @@ interface Props {
 
 const { lang, route, title, description } = Astro.props;
 const siteTitle = title === 'Piotr Tourkine' ? title : `${title} | Piotr Tourkine`;
-// hreflang requires absolute URLs, so resolve the routes against `site`.
-const canonical = new URL(pathFor(lang, route), Astro.site).href;
-const alternate = new URL(switchPath(lang, route), Astro.site).href;
+// The lab server is the main address; the GitHub Pages copy is a mirror.
+// Both builds therefore point search engines at the lab URLs.
+const MAIN_SITE = 'https://lapth.cnrs.fr/pg-nomin/tourkine';
+const canonical = `${MAIN_SITE}${routeMap[lang][route]}`;
+const alternate = `${MAIN_SITE}${routeMap[alternateLang[lang]][route]}`;
 ---
 
 <!doctype html>
@@ -28,6 +30,7 @@ const alternate = new URL(switchPath(lang, route), Astro.site).href;
 		<link rel="icon" href={withBase('/favicon.ico')} />
 		<link rel="alternate" hreflang={lang === 'en' ? 'fr' : 'en'} href={alternate} />
 		<link rel="alternate" hreflang={lang} href={canonical} />
+		<link rel="canonical" href={canonical} />
 		<meta property="og:title" content={siteTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:type" content="website" />
